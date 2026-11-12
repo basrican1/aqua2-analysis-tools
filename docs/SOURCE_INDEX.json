@@ -1,0 +1,2790 @@
+[
+  {
+    "file": "analysis/Canonical/adaptCanonicalFrequencyFromCellMetric.m",
+    "lines": 124,
+    "functions": [
+      "function out = adaptCanonicalFrequencyFromCellMetric(cellFreqTable, templateFreq, varargin)",
+      "function S = summarizeRates(rates, templateFreq)",
+      "function epochTable = pickEpochTable(T, templateFreq)",
+      "function [G, grpTbl] = groupRows(T, cols)",
+      "function s = toKey(v)"
+    ]
+  },
+  {
+    "file": "analysis/Canonical/addCalibratedCanonicalMetrics.m",
+    "lines": 79,
+    "functions": [
+      "function out = addCalibratedCanonicalMetrics(canonicalOut, epochSpec)"
+    ]
+  },
+  {
+    "file": "analysis/Canonical/assignEpochsToEvents.m",
+    "lines": 173,
+    "functions": [
+      "function out = assignEpochsToEvents(events, epochSpec, varargin)",
+      "function out = assignRecordingRelative(events, epochSpec)",
+      "function x = forceNumericCol(x)"
+    ]
+  },
+  {
+    "file": "analysis/Canonical/attachEventFieldsFromCanonical.m",
+    "lines": 88,
+    "functions": [
+      "function BWA_AQ2 = attachEventFieldsFromCanonical(BWA_AQ2, eventsTbl, filesTbl)",
+      "function x = rowNum(v)",
+      "function c = rowCellstr(v)",
+      "function c = canonCellstr(v)",
+      "function c = asCharVal(v)"
+    ]
+  },
+  {
+    "file": "analysis/Canonical/attachLegacyMetaFromCanonical.m",
+    "lines": 11,
+    "functions": [
+      "function BWA_AQ2 = attachLegacyMetaFromCanonical(BWA_AQ2, filesTbl)"
+    ]
+  },
+  {
+    "file": "analysis/Canonical/buildLegacyMetaFromCanonical.m",
+    "lines": 90,
+    "functions": [
+      "function [opts, DB] = buildLegacyMetaFromCanonical(filesTbl, fts1)",
+      "function c = canonCellstr(v)",
+      "function c = asCharVal(v)",
+      "function x = asNumVal(v)",
+      "function x = getNumCol(T, colName, idx, defaultVal)"
+    ]
+  },
+  {
+    "file": "analysis/Canonical/buildRecordingRelativeEpochSpec.m",
+    "lines": 152,
+    "functions": [
+      "function [epochSpec, filesOut, meta] = buildRecordingRelativeEpochSpec(files, recordingManifest, epochManifest, windowManifest, varargin)",
+      "function T = readManifest(value)",
+      "function requireColumns(T,names,label)",
+      "function assertUnique(values,label), if numel(unique(values))~=numel(values), error('RecordingRelativeEpochs:DuplicateID','%s contains duplicate IDs.',label); end, end",
+      "function validateExistingColumn(current,incoming,name)",
+      "function validateNoOverlaps(A)",
+      "function validateFactorLevels(files,pathIn)",
+      "function label=sourceLabel(value), if istable(value),label='<table>';else,label=char(string(value));end, end"
+    ]
+  },
+  {
+    "file": "analysis/Canonical/computeMetricBySliceCanonical.m",
+    "lines": 177,
+    "functions": [
+      "function out = computeMetricBySliceCanonical(events, files, metricCol, epochSpec, varargin)",
+      "function f = defaultMetricFilter(metricCol)",
+      "function [G, grpTbl] = groupTableRows(T, cols)",
+      "function s = toKeyStrings(v)"
+    ]
+  },
+  {
+    "file": "analysis/Canonical/computeNEventsPerMinCanonical.m",
+    "lines": 271,
+    "functions": [
+      "function out = computeNEventsPerMinCanonical(events, event_cell_map, files, epochSpec, varargin)",
+      "function d = epochDurationsMin(epochTable)",
+      "function out = fillMissingCellEpochCombos(counts, T, grpCols, assigned, cells, files)",
+      "function counts = attachEpochDurations(counts, assigned)",
+      "function [G, grpTbl] = groupTableRows(T, cols)",
+      "function s = toKeyStrings(v)"
+    ]
+  },
+  {
+    "file": "analysis/Canonical/frameTimeConversionsByEpoch.m",
+    "lines": 126,
+    "functions": [
+      "function timeFrameRangeEpochs = frameTimeConversionsByEpoch(framesIn, timesIn, sz_t, frameRate, epochNames)",
+      "function frameRange = frameRangeFromTimeRange(timeRange, timeStep, frameMin, frameMax)",
+      "function timeRange = timeRangeFromFrameRange(frameRange, timeStep, timeMin, timeMax)"
+    ]
+  },
+  {
+    "file": "analysis/Canonical/loadClusterOutputs.m",
+    "lines": 135,
+    "functions": [
+      "function out = loadClusterOutputs(pathIn, varargin)",
+      "function files = ensureDerivedFileColumns(files)",
+      "function runDir = detectRunDir(inputPath)",
+      "function rootDir = detectRootDir(inputPath, runDir)"
+    ]
+  },
+  {
+    "file": "analysis/Canonical/loadEpochSpecFromConfig.m",
+    "lines": 168,
+    "functions": [
+      "function [epochSpec, meta] = loadEpochSpecFromConfig(pathIn, varargin)",
+      "function rootDir = detectRootDir(pathIn)",
+      "function [sz_t, frameRate] = resolveSizes(szIn, frIn, rootDir)",
+      "function E = selectEpochConfig(cfg, preset)",
+      "function preset = resolvePresetName(cfg, requestedPreset)",
+      "function v = getFieldOr(s, f, d)",
+      "function M = toNumeric2(v)"
+    ]
+  },
+  {
+    "file": "analysis/Canonical/normalizeCanonicalOutput.m",
+    "lines": 287,
+    "functions": [
+      "function [normOut, meta] = normalizeCanonicalOutput(canonicalOut, varargin)",
+      "function out = normalizeFrequency(freqOut, mode, transform, baseIdx)",
+      "function out = normalizeMetric(metricOut, mode, transform, baseIdx)",
+      "function base = baselineVector(T, vals, mode, transform, baseIdx, keyCol)",
+      "function keyCol = selectCellKeyColumn(T)",
+      "function out = applyTransform(vals, base, transform)",
+      "function S = normalizeMetricSummaryOnly(S, metricCol, mode, transform, baseIdx)",
+      "function idx = resolveBaselineEpochIdx(epochTable, baselineEpoch)",
+      "function [G, grpTbl] = groupRows(T, cols)",
+      "function s = toKey(v)"
+    ]
+  },
+  {
+    "file": "analysis/Canonical/selectCanonicalSubset.m",
+    "lines": 75,
+    "functions": [
+      "function S = selectCanonicalSubset(files, cells, events, event_cell_map, varargin)",
+      "function T = filterEq(T, col, vals)",
+      "function c = canonCellstr(v)",
+      "function c = asCharVal(v)"
+    ]
+  },
+  {
+    "file": "analysis/Canonical/summarizeMetricStatsCanonical.m",
+    "lines": 68,
+    "functions": [
+      "function out = summarizeMetricStatsCanonical(T, valueVar, groupVar, varargin)",
+      "function nv = structToNV(s)"
+    ]
+  },
+  {
+    "file": "analysis/Canonical/writeEpochConfigFromFrameSplit.m",
+    "lines": 35,
+    "functions": [
+      "function outPath = writeEpochConfigFromFrameSplit(pathIn, frameRange, epochNames, varargin)"
+    ]
+  },
+  {
+    "file": "analysis/Canonical/writeEpochConfigTemplate.m",
+    "lines": 143,
+    "functions": [
+      "function outPath = writeEpochConfigTemplate(pathIn, varargin)",
+      "function epochs = buildEpochStruct(modeIn, frameRangeIn, timeRangeIn, epochNamesIn)",
+      "function M = toNx2(v, fieldName)",
+      "function names = autoEpochNames(n)"
+    ]
+  },
+  {
+    "file": "analysis/Compute/computeBAviolinData.m",
+    "lines": 314,
+    "functions": [
+      "function comp = computeBAviolinData(fts, opts, datTree, timeFrameRangeEpochs, memberlist, varargin)",
+      "function tf = shouldDropNegativeValues(datTree)",
+      "function dffAll = canonicalMetricFromEvents(datTree, eventsTbl, filesTbl)",
+      "function col = mapDatTreeToEventCol(datTree)",
+      "function epMembIdx = epochMembershipFromFrames(t0, timeFrameRangeEpochs)",
+      "function [outDffs, normDFFs, outMember, outT0s, outEpochs, normFull] = normalizedByCellBaseLocal(inDFFs, inMember, inFileID, inT0s, baselineVals, baselineCell, baselineFileID, epMembIdx)"
+    ]
+  },
+  {
+    "file": "analysis/Compute/computeBWA_Aqua2PolarsBySliceData.m",
+    "lines": 617,
+    "functions": [
+      "function out = computeBWA_Aqua2PolarsBySliceData(BWA_AQ2, varargin)",
+      "function [labels, saveValA, saveValC, saveSigA, saveSigC, entityValuesA, entityValuesC, entityValuesAByFile, entityValuesCByFile, feature, cacheOut] = appendBySliceMetric( ...",
+      "function [meansA, meansC, sigA, sigC, pooledA, pooledC, pooledAByFile, pooledCByFile, cacheOut] = checkBySliceComputeOnlyFast(fts, opts, datTree, timeFrameRangeEpochs, memberlist, anaRulz, cacheIn, dataLimitRules, combineEpochNames, filesTbl, eventsTbl)",
+      "function [out, hit] = getOrBuildCache(fts, memberlist, anaRulz, cacheIn, dataLimitRules)",
+      "function sig = rulesSignature(anaRulz)",
+      "function [means_alln, means_celln] = computeEpochMeansFromComp(comp, timeFrameRangeEpochs)",
+      "function [sig_alln, sig_celln] = computeCnoSignificanceFromComp(comp, timeFrameRangeEpochs, combineEpochNames)",
+      "function [valsA, valsC] = extractCombinedEpochValues(comp, timeFrameRangeEpochs, combineEpochNames)",
+      "function tf = isSigVsZero(x)",
+      "function v = combineEpochValue(x, timeFrameRangeEpochs, combineEpochNames)",
+      "function idx = resolveCombinedEpochIdx(timeFrameRangeEpochs, combineEpochNames)",
+      "function [propdistVal, angleVal] = calcpropdistAngleLocal(fts, spatialRes)",
+      "function [prop, valStr_distance, angle] = calcPropagationLocal(fts, eventnum, spatialRes)",
+      "function sr = localFirstSpatialRes(opts)",
+      "function n = centroidCompatibleEventCount(fts)"
+    ]
+  },
+  {
+    "file": "analysis/Compute/computeBWA_Aqua2StandardData.m",
+    "lines": 346,
+    "functions": [
+      "function out = computeBWA_Aqua2StandardData(ctx, varargin)",
+      "function v = localFieldOrNaN(s, field)",
+      "function [propdistVal, angleVal] = calcpropdistAngleLocal(fts, spatialRes)",
+      "function [prop, valStr_distance, angle] = calcPropagationLocal(fts, eventnum, spatialRes)",
+      "function [eventsOut, mapOut] = filterCanonicalEventsAndMap(eventsTbl, mapTbl, rules)",
+      "function pass = applyRuleToVector(x, limitType, value)",
+      "function col = mapDataTypeToEventCol(dataType)",
+      "function spatialRes = localFirstSpatialRes(opts)"
+    ]
+  },
+  {
+    "file": "analysis/Compute/numSubplotsForN.m",
+    "lines": 26,
+    "functions": [
+      "function subs = numSubplotsForN(n)"
+    ]
+  },
+  {
+    "file": "analysis/Compute/prepareLegacyAqua2Context.m",
+    "lines": 245,
+    "functions": [
+      "function ctx = prepareLegacyAqua2Context(BWA_AQ2, varargin)",
+      "function BWA_AQ2 = fillLegacyMetricsFromEvents(BWA_AQ2, eventsTbl, filesTbl)",
+      "function E = canonicalizeEvents(eventsTbl, fts1)",
+      "function v = rowNum(v)",
+      "function [exists, value] = nestedField(S, path)",
+      "function S = setNestedField(S, path, val)",
+      "function E = addLegacyCalibratedEventColumns(E, filesTbl)"
+    ]
+  },
+  {
+    "file": "analysis/CorrelationStats/CorrelationStats.m",
+    "lines": 1287,
+    "functions": [
+      "function out = CorrelationStats(source, varargin)",
+      "function Tout = combineLongAcrossEpochs(Tin, epochNames, combinedLabel, methodName, valueVar)",
+      "function families = normalizeMetricFamilies(families)",
+      "function out = normalizeStringListLocal(in)",
+      "function allowed = resolveAllowedMetricIDs(families, unitLevel, reg, metaTables, selectionMode, includeOverlappingDerived)",
+      "function families = supportedFamiliesForUnit(unitLevel)",
+      "function allowed = applyCorrelationMetricSelection(allowed, unitLevel, selectionMode)",
+      "function ids = selectMetricIDsByFamily(familyName, unitLevel, reg, metaTables)",
+      "function ids = selectMetaTableMetricIDs(metaStruct, familyName)",
+      "function families = supportedMetricFamilies()",
+      "function [rows, meta] = collectCanonicalLong(result, unitLevel, dataView)",
+      "function ids = filterPreferredCanonicalMetricIDs(ids)",
+      "function [rows, meta] = collectDerivedLong(result, unitLevel, dataView, includeOverlappingDerived)",
+      "function Tlong = metricOutEventValuesToLong(metricOut, metricID, unitLevel)",
+      "function valueCol = inferEventValueColumn(T, metricOut)",
+      "function Tlong = canonicalSummaryToLong(S, metricID, valueCol, unitLevel)",
+      "function rows = collectRegistryLong(result, reg, unitLevel, dataView)",
+      "function [regRow, tablesStruct] = selectRegistrySourceForCorrelation(result, reg, idx, dataView)",
+      "function T = enforceRequestedUnitLevel(T, unitLevel)",
+      "function Tlong = makeLongFromTable(T, metricID, ycol, levelName, entityCols)",
+      "function Tlong = aggregateTableToLevel(T, metricID, ycol, levelName, groupCols)",
+      "function cols = cellGroupColsForTable(T)",
+      "function y = meanOmitNaN(x)",
+      "function [rows, meta] = collectEventLocalLong(result, dataView)",
+      "function metricOut = selectCanonicalMetricForCorrelation(result, metricID)",
+      "function freqOut = selectCanonicalFrequencyForCorrelation(result, metricID)",
+      "function cols = pickEventLocalValueColumns(T, dataView)",
+      "function out = stripEventLocalColumnPrefix(vcol)",
+      "function [Twide, metricNames, metricIDs] = longToWide(Tlong)",
+      "function [G, grpTbl] = localGroupRows(T, cols)",
+      "function s = toKeyLocal(v)",
+      "function valueCol = inferSummaryValueColumn(S, metricName)",
+      "function N = computePairwiseCounts(X)",
+      "function T = buildPairTable(metricIDs, R, P, N, minN)",
+      "function q = bhAdjust(p)",
+      "function T = filterPreferredRegistryMetricRows(T)",
+      "function rows = collectDenominatorLong(result, reg, unitLevel, dataView, epochName)",
+      "function denomCol = denominatorColumnForMetric(metricID, sourceTable)",
+      "function Tlong = makeDenLongFromTable(T, metricID, dcol, levelName, entityCols)",
+      "function Tlong = aggregateDenTableToLevel(T, metricID, dcol, levelName, groupCols)",
+      "function ids = dynamicSliceRecruitmentMetricIDs()",
+      "function rows = collectDynamicSliceRecruitmentLong(result, unitLevel, dataView)",
+      "function rows = collectDynamicSliceRecruitmentDenominatorLong(result, unitLevel, dataView)",
+      "function transform = resolveDynamicTransform(result, dataView, metricID, unitLevel)",
+      "function [Twide, metricNames, metricIDs] = longToWideDenominator(Tlong)"
+    ]
+  },
+  {
+    "file": "analysis/CorrelationStats/correlationMetricPolicy.m",
+    "lines": 80,
+    "functions": [
+      "function P = correlationMetricPolicy(unitLevel, selectionMode)"
+    ]
+  },
+  {
+    "file": "analysis/CorrelationStats/plot_CorrelationStats_heatmap.m",
+    "lines": 371,
+    "functions": [
+      "function out = plot_CorrelationStats_heatmap(source, varargin)",
+      "function order = computeMetricOrder(R)",
+      "function y = squareformSymmetric(D)",
+      "function labels = abbreviateCorrelationMetricLabels(labels)",
+      "function out = abbreviateOne(in)",
+      "function addValueText(ax, R)",
+      "function groups = classifyCorrelationMetricGroups(metricIDs)",
+      "function H = addGroupBoxes(hFig, ax, groups)",
+      "function palette = groupPalette()",
+      "function txt = buildTitle(corrOut)",
+      "function out = capitalizeMethod(in)",
+      "function updateGroupBoxLayout(hFig, ax, H)",
+      "function pos = getAxesBoxPosition(ax)",
+      "function [runs, labels] = contiguousGroupRuns(groups)"
+    ]
+  },
+  {
+    "file": "analysis/CorrelationStats/plot_CorrelationStats_pair.m",
+    "lines": 206,
+    "functions": [
+      "function out = plot_CorrelationStats_pair(source, metricA, metricB, varargin)",
+      "function varName = findMetricVar(corrOut, metricID)",
+      "function out = capitalizeMethod(in)",
+      "function [cvals, cLabel] = resolveDenominatorColor(corrOut, T, metricA, metricB, colorOpt)",
+      "function d = fetchDenominator(corrOut, Tplot, metricID)",
+      "function tf = isFractionMetric(metricID)"
+    ]
+  },
+  {
+    "file": "analysis/CorrelationStats/plot_CorrelationStats_top_pairs.m",
+    "lines": 265,
+    "functions": [
+      "function out = plot_CorrelationStats_top_pairs(corrOut, summaryOut, varargin)",
+      "function [hFig, axArr] = plotPairSet(corrOut, Tset, signLabel, opts)",
+      "function drawPairIntoAxes(ax, corrOut, metricA, metricB, opts, rowT)",
+      "function n = getObsN(T)",
+      "function out = abbreviateMetric(metricID)",
+      "function varName = findMetricVar(corrOut, metricID)",
+      "function [cvals, cLabel] = resolveDenominatorColor(corrOut, Tplot, metricA, metricB, colorOpt)",
+      "function d = fetchDenominator(corrOut, Tplot, metricID)",
+      "function tf = isFractionMetric(metricID)",
+      "function [nr, nc] = bestGrid(n)"
+    ]
+  },
+  {
+    "file": "analysis/CorrelationStats/summarize_CorrelationStats_top.m",
+    "lines": 112,
+    "functions": [
+      "function out = summarize_CorrelationStats_top(source, varargin)"
+    ]
+  },
+  {
+    "file": "analysis/Pipelines/listAnalysisPresets.m",
+    "lines": 130,
+    "functions": [
+      "function T = listAnalysisPresets(pathIn, varargin)",
+      "function cfg = loadPlanConfig(pathIn)",
+      "function rootDir = detectRootDir(pathIn)",
+      "function v = getFieldOr(s, f, d)",
+      "function out = joinStrings(v, delim)"
+    ]
+  },
+  {
+    "file": "analysis/Pipelines/listLegacyModules.m",
+    "lines": 68,
+    "functions": [
+      "function info = listLegacyModules(varargin)",
+      "function printModule(m)"
+    ]
+  },
+  {
+    "file": "analysis/Pipelines/loadAnalysisPlan.m",
+    "lines": 73,
+    "functions": [
+      "function [plan, meta] = loadAnalysisPlan(pathIn, varargin)",
+      "function rootDir = detectRootDir(pathIn)"
+    ]
+  },
+  {
+    "file": "analysis/Pipelines/runAnalysisPreset.m",
+    "lines": 52,
+    "functions": [
+      "function out = runAnalysisPreset(pathIn, varargin)"
+    ]
+  },
+  {
+    "file": "analysis/Pipelines/runBWA_Aqua2FromCluster.m",
+    "lines": 10,
+    "functions": [
+      "function loaded = runBWA_Aqua2FromCluster(pathIn, varargin)"
+    ]
+  },
+  {
+    "file": "analysis/Pipelines/runBWA_Aqua2PolarsBySliceFromCluster.m",
+    "lines": 10,
+    "functions": [
+      "function loaded = runBWA_Aqua2PolarsBySliceFromCluster(pathIn, varargin)"
+    ]
+  },
+  {
+    "file": "analysis/Pipelines/runCanonicalAnalysisPipeline.m",
+    "lines": 71,
+    "functions": [
+      "function out = runCanonicalAnalysisPipeline(pathIn, epochSpec, varargin)",
+      "function nv = structToNameValue(s)"
+    ]
+  },
+  {
+    "file": "analysis/Pipelines/runCanonicalAnalysisPipelineWithQC.m",
+    "lines": 194,
+    "functions": [
+      "function out = runCanonicalAnalysisPipelineWithQC(pathIn, epochSpec, varargin)",
+      "function files = applyFilesOverride(canonicalFiles, overrideFiles)",
+      "function nv = structToNameValue(s)",
+      "function S = applyCanonicalDataLimitRules(S, rules)",
+      "function pass = applyRuleToVector(x, limitType, value)",
+      "function col = mapDataTypeToEventCol(dataType)"
+    ]
+  },
+  {
+    "file": "analysis/Pipelines/runLegacyComputeThenPlot.m",
+    "lines": 250,
+    "functions": [
+      "function out = runLegacyComputeThenPlot(pathIn, cfg)",
+      "function tfre = resolveEpochSpec(pathIn, cfg)",
+      "function nv = structToNameValue(s)",
+      "function out = mergeStructs(defaults, in)",
+      "function cfg = defaultCfg()"
+    ]
+  },
+  {
+    "file": "analysis/Pipelines/writeAnalysisPlanPreset.m",
+    "lines": 75,
+    "functions": [
+      "function outPath = writeAnalysisPlanPreset(pathIn, varargin)",
+      "function rootDir = detectRootDir(pathIn)"
+    ]
+  },
+  {
+    "file": "analysis/Pipelines/writeAnalysisPlanTemplate.m",
+    "lines": 91,
+    "functions": [
+      "function outPath = writeAnalysisPlanTemplate(pathIn, varargin)",
+      "function rootDir = detectRootDir(pathIn)"
+    ]
+  },
+  {
+    "file": "analysis/Pipelines/writeLegacyPipelineConfigTemplate.m",
+    "lines": 82,
+    "functions": [
+      "function outPath = writeLegacyPipelineConfigTemplate(pathIn, varargin)"
+    ]
+  },
+  {
+    "file": "analysis/Plots/getBWAPlotStyle.m",
+    "lines": 26,
+    "functions": [
+      "function style = getBWAPlotStyle()"
+    ]
+  },
+  {
+    "file": "analysis/Plots/mergeBWAPlotStyle.m",
+    "lines": 26,
+    "functions": [
+      "function out = mergeBWAPlotStyle(baseStyle, overrideStyle)"
+    ]
+  },
+  {
+    "file": "analysis/Plots/plotBAviolinPanels.m",
+    "lines": 251,
+    "functions": [
+      "function [h_fig, means_alln, means_celln] = plotBAviolinPanels(comp, timeFrameRangeEpochs, memberlist, varargin)",
+      "function ax = createPanelAxes(h_fig)",
+      "function updateLabels(src,evt, ax1)"
+    ]
+  },
+  {
+    "file": "analysis/Plots/plotBAviolinSubplotAnova.m",
+    "lines": 93,
+    "functions": [
+      "function out = plotBAviolinSubplotAnova(values, groups, varargin)",
+      "function nv = structToNV(s)",
+      "function T = normalizeUitableTable(T)"
+    ]
+  },
+  {
+    "file": "analysis/Plots/plotBAviolinSubplotEpochViolin.m",
+    "lines": 56,
+    "functions": [
+      "function out = plotBAviolinSubplotEpochViolin(values, t0, datTxt, timeFrameRangeEpochs, varargin)",
+      "function epMembIdx = epochMembershipLocal(t0, timeFrameRangeEpochs)",
+      "function mode = inferLabelMode(datTxt)"
+    ]
+  },
+  {
+    "file": "analysis/Plots/plotBAviolinSubplotFoldScatter.m",
+    "lines": 45,
+    "functions": [
+      "function out = plotBAviolinSubplotFoldScatter(dffs, foldChanges, epMembIdx, datTxt, varargin)",
+      "function c = epochColor(epID)"
+    ]
+  },
+  {
+    "file": "analysis/Plots/plotBAviolinSubplotMetricSummary.m",
+    "lines": 74,
+    "functions": [
+      "function out = plotBAviolinSubplotMetricSummary(comp, timeFrameRangeEpochs, datTxt, varargin)"
+    ]
+  },
+  {
+    "file": "analysis/Plots/plotBAviolinSubplotMultcompare.m",
+    "lines": 92,
+    "functions": [
+      "function out = plotBAviolinSubplotMultcompare(statsIn, varargin)",
+      "function [c, m, gnames, testName] = getPairwiseFromStats(statsIn)"
+    ]
+  },
+  {
+    "file": "analysis/Plots/plotBAviolinSubplotSliceSpider.m",
+    "lines": 291,
+    "functions": [
+      "function out = plotBAviolinSubplotSliceSpider(comp, timeFrameRangeEpochs, datTxt, varargin)",
+      "function c = epochColor(idx)",
+      "function mode = normalizeLegacySpiderBranchMode(modeIn)",
+      "function labels = makeSliceLabels(fileIDs, filesTbl)",
+      "function plotLineFallback(hFig, hAx, valuesA, valuesC, labels, timeFrameRangeEpochs, epochPair, branchMode, styleSp, combineEpochNames, combinedEpochLabel)",
+      "function legVals = epochLegend(timeFrameRangeEpochs, epochPair, bothMode, combineEpochNames, combinedEpochLabel)",
+      "function nudgeLegendRight(hLeg, frac)",
+      "function tf = isSignificantVsZero(x, alpha)",
+      "function idx = resolveCombinedEpochIdx(timeFrameRangeEpochs, combineEpochNames)"
+    ]
+  },
+  {
+    "file": "analysis/Plots/plotBAviolinSubplotTimeScatter.m",
+    "lines": 52,
+    "functions": [
+      "function out = plotBAviolinSubplotTimeScatter(dffAll, tOccuring, memberlist, datTxt, timeFrameRangeEpochs, varargin)",
+      "function mode = inferLabelMode(datTxt)"
+    ]
+  },
+  {
+    "file": "analysis/Plots/plotBAviolinSubplotValueVsFold.m",
+    "lines": 76,
+    "functions": [
+      "function out = plotBAviolinSubplotValueVsFold(c1, m1, c2, m2, datTxt, varargin)",
+      "function c = epochColorFromGroup(idx, groupNames)",
+      "function hw = halfwidthFromMultCmpLocal(c, m)"
+    ]
+  },
+  {
+    "file": "analysis/Plots/plotBWA_Aqua2PolarsBySlice.m",
+    "lines": 664,
+    "functions": [
+      "function out = plotBWA_Aqua2PolarsBySlice(polData, varargin)",
+      "function mode = normalizeSpiderBranchMode(modeIn)",
+      "function [aggregateEBy, aggregateCBy] = resolveSpiderSliceAggregation(branchMode, comparisonLevel, aggregateEIn, aggregateCIn)",
+      "function label = resolveSpiderSliceComparisonLevelLabel(comparisonLevel, aggregateEBy, aggregateCBy)",
+      "function [valuesA, valuesC, aggInfo] = resolvePanelBranchValues(polData, aggregateEBy, aggregateCBy)",
+      "function [values, usedEntity] = applyEntityAggregationByFile(values, polData, fieldName)",
+      "function T = buildCompanionTable(valuesA, valuesC, labels, fileIDs, inputScale, aggInfo)",
+      "function T = buildSpiderSliceStatsSummary(labels, fileIDs, polData, valuesA, valuesC, branchMode, aggregateEBy, aggregateCBy)",
+      "function T = sortSpiderSliceStatsTable(T)",
+      "function branches = resolveStatsBranches(branchMode)",
+      "function tf = metricEntityBacked(entityByFile, nFiles)",
+      "function nVals = metricEntityCounts(entityByFile, nFiles)",
+      "function d = significanceDirection(vals, sig)",
+      "function hFig = displaySpiderSliceStatsFigure(T, figName, statsInfo)",
+      "function lims = resolvePanelLimitFromPolars(valuesA, valuesC, inputScale, userLimit, nMetrics, scaleMode, clipPct)",
+      "function log2X = convertToLog2(X, inputScale)"
+    ]
+  },
+  {
+    "file": "analysis/Plots/plotBWA_Aqua2StandardPanels.m",
+    "lines": 65,
+    "functions": [
+      "function out = plotBWA_Aqua2StandardPanels(ctx, varargin)"
+    ]
+  },
+  {
+    "file": "analysis/Plots/plotMetricBySliceCanonical.m",
+    "lines": 404,
+    "functions": [
+      "function h = plotMetricBySliceCanonical(metricOut, varargin)",
+      "function [S, gcol, tvals, tname, ycol] = buildPlotTable(metricOut, comparisonLevel, groupLabel, traceLabel, cellInclusion, ycol)",
+      "function [S, gcol, ycol] = metricByCellSummary(metricOut, gcol, cellInclusion)",
+      "function S = expandCellEpochGrid(Sin, gcol, ycol, epochTable)",
+      "function S = applyCellInclusionPolicy(S, gcol, cellCol, ycol, epochTable, cellInclusion)",
+      "function [x, y] = aggregateByEpoch(epochIdx, vals)",
+      "function TM = buildTraceEpochTable(S, tvals, gcol, ycol)",
+      "function addEpochSigStars(sig, alpha)",
+      "function lbl = prettyMetricLabel(metricCol)"
+    ]
+  },
+  {
+    "file": "analysis/Plots/plotNEventsPerMinCanonical.m",
+    "lines": 340,
+    "functions": [
+      "function h = plotNEventsPerMinCanonical(freqOut, varargin)",
+      "function [x, y] = aggregateByEpoch(epochIdx, vals)",
+      "function TM = buildTraceEpochTable(S, tvals, gcol, ycol)",
+      "function [S, gcol, tvals, tname] = buildFreqPlotTable(freqOut, level, groupLabel, traceLabel, cellInclusion)",
+      "function S = buildFreqByCellRows(Tin, epochTable, cellInclusion)",
+      "function addEpochSigStars(sig, alpha)"
+    ]
+  },
+  {
+    "file": "analysis/Plots/plotPolarsSpiderSubplot.m",
+    "lines": 408,
+    "functions": [
+      "function out = plotPolarsSpiderSubplot(valuesA, valuesC, labels, fileID, varargin)",
+      "function spObj = drawSpiderIntoAxes(hFig, hAx, valuesA, valuesC, labels, fileID, varargin)",
+      "function mode = normalizeSpiderBranchMode(modeIn)",
+      "function lims = resolveSymmetricLimit(vals, userLim, nMetrics)",
+      "function forceTextInterpreterNone(hFig, hAx)",
+      "function plotSignificanceStars(hAx, mins, maxs, sigA, sigC, colorA, colorC, style, branchMode)",
+      "function labelsOut = abbreviateSpiderLabels(labelsIn)",
+      "function out = abbreviateSpiderLabel(in)"
+    ]
+  },
+  {
+    "file": "analysis/Plots/plotSpiderLog2FC.m",
+    "lines": 161,
+    "functions": [
+      "function [sp, companionTbl, figHandles] = plotSpiderLog2FC(valuesA, valuesC, labels, fileIDs, varargin)",
+      "function out = log2Safe(in)",
+      "function lims = resolveSymmetricLimits(a, c, userLim, nMetrics)",
+      "function T = makeCompanionTable(fileIDs, labels, foldA, foldC, log2A, log2C)"
+    ]
+  },
+  {
+    "file": "analysis/Plots/resolvePlotAxes.m",
+    "lines": 39,
+    "functions": [
+      "function [h_fig, h_ax] = resolvePlotAxes(varargin)"
+    ]
+  },
+  {
+    "file": "analysis/QC/applyQCToCanonical.m",
+    "lines": 78,
+    "functions": [
+      "function out = applyQCToCanonical(files, cells, events, event_cell_map, qc_files, qc_cells, qc_events, varargin)",
+      "function keep = idKeepMask(allIDs, qc, key)",
+      "function mustHave(T, cols)"
+    ]
+  },
+  {
+    "file": "analysis/QC/createQCTables.m",
+    "lines": 57,
+    "functions": [
+      "function qc = createQCTables(files, cells, events, varargin)",
+      "function requireCol(T, c)"
+    ]
+  },
+  {
+    "file": "analysis/QC/loadOrCreateQC.m",
+    "lines": 68,
+    "functions": [
+      "function [qc, loaded, meta] = loadOrCreateQC(pathIn, varargin)",
+      "function rootDir = detectRootDir(pathIn)",
+      "function T = getVarOrFirstTable(S, name)"
+    ]
+  },
+  {
+    "file": "analysis/QC/markQC.m",
+    "lines": 63,
+    "functions": [
+      "function qc = markQC(qc, level, ids, keep, reason, reviewer)"
+    ]
+  },
+  {
+    "file": "analysis/QC/saveQC.m",
+    "lines": 80,
+    "functions": [
+      "function out = saveQC(pathIn, qc, varargin)",
+      "function rootDir = detectRootDir(pathIn)",
+      "function requireField(S, f)"
+    ]
+  },
+  {
+    "file": "analysis/QC/summarizeQCOutcome.m",
+    "lines": 120,
+    "functions": [
+      "function summary = summarizeQCOutcome(original, filtered, qc_files, qc_cells, qc_events)",
+      "function n = tableHeightOrZero(S, fieldName)",
+      "function out = reasonCounts(qc, keyName)",
+      "function out = groupsumOne(T, keyCol, valCol)"
+    ]
+  },
+  {
+    "file": "analysis/QC/validateQCTables.m",
+    "lines": 68,
+    "functions": [
+      "function report = validateQCTables(qc_files, qc_cells, qc_events, files, cells, events, varargin)",
+      "function report = checkOne(report, qc, src, key, name)"
+    ]
+  },
+  {
+    "file": "analysis/Stats/runGroupComparison.m",
+    "lines": 284,
+    "functions": [
+      "function out = runGroupComparison(values, groups, varargin)",
+      "function method = chooseAutoMethod(nGroups, paired, parametric)",
+      "function g = grouprow(groups)",
+      "function g = normalizeGroup(g, groupOrder)",
+      "function pairID = normalizePairID(pairIDIn, n)",
+      "function out = fillResult(out, testName, pval, tbl, c, m, gnames)",
+      "function T = groupSummary(y, g, gnames)",
+      "function [c, m, pval, tbl, gnames] = runTwoGroupUnpaired(y, g, parametric)",
+      "function [c, m, pval, tbl, gnames] = runTwoGroupPaired(y, g, pairID, parametric)",
+      "function [pval, tbl, stats, gnames] = runFriedman(y, g, pairID)",
+      "function [x1, x2] = pairedVectors(y, g, pairID, gnames)",
+      "function m = mkGroupStatsForTwo(g1, g2)"
+    ]
+  },
+  {
+    "file": "analysis/Stats/summarizeFrequencyEpochVsBaseline.m",
+    "lines": 212,
+    "functions": [
+      "function out = summarizeFrequencyEpochVsBaseline(freqOut, varargin)",
+      "function [x, y] = aggregateByEpoch(epochIdx, vals)",
+      "function TM = buildTraceEpochTable(S, tvals, gcol, ycol)",
+      "function [S, gcol, tvals, tname] = buildFreqPlotTable(freqOut, level, groupLabel, traceLabel, cellInclusion)",
+      "function S = buildFreqByCellRows(Tin, epochTable, cellInclusion)"
+    ]
+  },
+  {
+    "file": "analysis/Stats/summarizeMetricEpochVsBaseline.m",
+    "lines": 236,
+    "functions": [
+      "function out = summarizeMetricEpochVsBaseline(metricOut, varargin)",
+      "function [S, gcol, tvals, tname, ycol] = buildPlotTable(metricOut, comparisonLevel, groupLabel, traceLabel, cellInclusion, ycol)",
+      "function [S, gcol, ycol] = metricByCellSummary(metricOut, gcol, cellInclusion)",
+      "function S = expandCellEpochGrid(Sin, gcol, ycol, epochTable)",
+      "function S = applyCellInclusionPolicy(S, gcol, cellCol, ycol, epochTable, cellInclusion)",
+      "function [x, y] = aggregateByEpoch(epochIdx, vals)",
+      "function TM = buildTraceEpochTable(S, tvals, gcol, ycol)"
+    ]
+  },
+  {
+    "file": "analysis/Utils/bwaApplyTransform.m",
+    "lines": 20,
+    "functions": [
+      "function out = bwaApplyTransform(vals, base, transform)"
+    ]
+  },
+  {
+    "file": "analysis/Utils/bwaBuildCellMetricOutFromTable.m",
+    "lines": 19,
+    "functions": [
+      "function mOut = bwaBuildCellMetricOutFromTable(T, metricCol, epochTable)"
+    ]
+  },
+  {
+    "file": "analysis/Utils/bwaBuildDynamicSliceMetricOut.m",
+    "lines": 79,
+    "functions": [
+      "function [mOut, ok] = bwaBuildDynamicSliceMetricOut(result, metricID, dataView)",
+      "function spec = dynamicSliceMetricSpec(metricID)",
+      "function transform = resolveTransform(result, dataView, metricID)"
+    ]
+  },
+  {
+    "file": "analysis/Utils/bwaBuildDynamicSliceRecruitmentTable.m",
+    "lines": 227,
+    "functions": [
+      "function T = bwaBuildDynamicSliceRecruitmentTable(result, varargin)",
+      "function T = coalesceJoinedColumns(T)",
+      "function normVals = localNormByBaseline(T, metricCol, keyCols, epsVal, transform)",
+      "function [G, grpTbl] = localGroupRows(T, cols)",
+      "function s = toKey(v)"
+    ]
+  },
+  {
+    "file": "analysis/Utils/bwaBuildMetricOutFromTable.m",
+    "lines": 99,
+    "functions": [
+      "function mOut = bwaBuildMetricOutFromTable(T, metricCol, epochTable, varargin)",
+      "function [G, grpTbl] = localGroupRows(T, cols)",
+      "function s = toKey(v)"
+    ]
+  },
+  {
+    "file": "analysis/Utils/bwaBuildNormalizationExportBundle.m",
+    "lines": 88,
+    "functions": [
+      "function [bundle, summaryTable, metricTable] = bwaBuildNormalizationExportBundle(result)",
+      "function [metricIDs, unitLevels] = collectMetricRegistry(result)",
+      "function T = provenanceSummaryTable(rawProv, normProv, recommendedProv)",
+      "function T = provenanceMetricTable(rawProv, normProv, recommendedProv)"
+    ]
+  },
+  {
+    "file": "analysis/Utils/bwaCanonicalPromotedMetricID.m",
+    "lines": 23,
+    "functions": [
+      "function promotedMetricID = bwaCanonicalPromotedMetricID(metricName)"
+    ]
+  },
+  {
+    "file": "analysis/Utils/bwaCollectDerivedSummaryEntries.m",
+    "lines": 48,
+    "functions": [
+      "function T = bwaCollectDerivedSummaryEntries(S, includeOverlappingDerived)"
+    ]
+  },
+  {
+    "file": "analysis/Utils/bwaCompToMetricOut.m",
+    "lines": 140,
+    "functions": [
+      "function mOut = bwaCompToMetricOut(comp, filesTbl, epochNames, titleName, normCfg)",
+      "function out = normalizeDerivedVals(vals, ep, cellID, mode, transform, baseIdx)"
+    ]
+  },
+  {
+    "file": "analysis/Utils/bwaComputeBaselineValue.m",
+    "lines": 23,
+    "functions": [
+      "function b = bwaComputeBaselineValue(vals, mask, transform)"
+    ]
+  },
+  {
+    "file": "analysis/Utils/bwaComputeEpochVsBaselineSig.m",
+    "lines": 86,
+    "functions": [
+      "function sig = bwaComputeEpochVsBaselineSig(TM, baselineIdx, method, alpha)",
+      "function [x, y] = matchTraceValues(B, E)",
+      "function p = doSigTest(x, y, method)"
+    ]
+  },
+  {
+    "file": "analysis/Utils/bwaComputeMemberlistForBWA.m",
+    "lines": 4,
+    "functions": [
+      "function memberlist = bwaComputeMemberlistForBWA(BWA, opts, DB)"
+    ]
+  },
+  {
+    "file": "analysis/Utils/bwaDatTreeToDataType.m",
+    "lines": 23,
+    "functions": [
+      "function dataType = bwaDatTreeToDataType(datTree)"
+    ]
+  },
+  {
+    "file": "analysis/Utils/bwaDescribeResultCapabilities.m",
+    "lines": 78,
+    "functions": [
+      "function caps = bwaDescribeResultCapabilities(result)",
+      "function tf = hasRequiredPolars(polData)",
+      "function out = buildSummary(caps)"
+    ]
+  },
+  {
+    "file": "analysis/Utils/bwaEnrichMetricRegistry.m",
+    "lines": 67,
+    "functions": [
+      "function reg = bwaEnrichMetricRegistry(reg)",
+      "function T = ensureStringColumn(T, name)"
+    ]
+  },
+  {
+    "file": "analysis/Utils/bwaEnsureDefaultNameValueArgs.m",
+    "lines": 19,
+    "functions": [
+      "function args = bwaEnsureDefaultNameValueArgs(argsIn, defaultPairs)"
+    ]
+  },
+  {
+    "file": "analysis/Utils/bwaFormatFileIDLabel.m",
+    "lines": 48,
+    "functions": [
+      "function out = bwaFormatFileIDLabel(fileID)"
+    ]
+  },
+  {
+    "file": "analysis/Utils/bwaHasNameValueArg.m",
+    "lines": 14,
+    "functions": [
+      "function tf = bwaHasNameValueArg(args, key)"
+    ]
+  },
+  {
+    "file": "analysis/Utils/bwaLookupMetricVocabulary.m",
+    "lines": 22,
+    "functions": [
+      "function row = bwaLookupMetricVocabulary(metricID, registry)"
+    ]
+  },
+  {
+    "file": "analysis/Utils/bwaMakeSliceLabels.m",
+    "lines": 70,
+    "functions": [
+      "function labels = bwaMakeSliceLabels(fileIDs, filesTbl)",
+      "function out = makeUnique(in)"
+    ]
+  },
+  {
+    "file": "analysis/Utils/bwaMetricConceptKey.m",
+    "lines": 47,
+    "functions": [
+      "function key = bwaMetricConceptKey(metricID)"
+    ]
+  },
+  {
+    "file": "analysis/Utils/bwaMetricLabelLatex.m",
+    "lines": 73,
+    "functions": [
+      "function txt = bwaMetricLabelLatex(datTxt, mode)",
+      "function core = metricCore(raw)"
+    ]
+  },
+  {
+    "file": "analysis/Utils/bwaMetricVocabularyCatalog.m",
+    "lines": 153,
+    "functions": [
+      "function T = bwaMetricVocabularyCatalog(metricIDs)",
+      "function T = baseCatalog()",
+      "function T = addStorageContract(T)"
+    ]
+  },
+  {
+    "file": "analysis/Utils/bwaOrderSpiderMetricsByFamily.m",
+    "lines": 39,
+    "functions": [
+      "function [order, familiesOrdered, ranks] = bwaOrderSpiderMetricsByFamily(metricLabels)"
+    ]
+  },
+  {
+    "file": "analysis/Utils/bwaPreferredTransformForMetricID.m",
+    "lines": 60,
+    "functions": [
+      "function transform = bwaPreferredTransformForMetricID(metricID, varargin)"
+    ]
+  },
+  {
+    "file": "analysis/Utils/bwaReduceByFiles.m",
+    "lines": 9,
+    "functions": [
+      "function BWA_sub = bwaReduceByFiles(BWA, fileIDs, filesTbl, eventsTbl)"
+    ]
+  },
+  {
+    "file": "analysis/Utils/bwaResolveMetricFamily.m",
+    "lines": 48,
+    "functions": [
+      "function family = bwaResolveMetricFamily(metricID, registry)",
+      "function family = resolveFamilyHeuristic(metricID)"
+    ]
+  },
+  {
+    "file": "analysis/Utils/bwaResolveNormalizationProvenance.m",
+    "lines": 181,
+    "functions": [
+      "function prov = bwaResolveNormalizationProvenance(result, dataView, metricIDs, unitLevels)",
+      "function out = resolveTransformForMetric(metricID, unitLevel, view, defaultTransform)",
+      "function out = inferUnitLevel(metricID)",
+      "function out = inferBaselineEpochName(result, baselineEpochIdx)",
+      "function out = buildSummaryLabel(view, mode, defaultTransform, enabled, uniqTransforms)",
+      "function out = buildCompactLabel(view, defaultTransform, enabled, uniqTransforms)"
+    ]
+  },
+  {
+    "file": "analysis/Utils/bwaSelectCanonicalMetricSummary.m",
+    "lines": 200,
+    "functions": [
+      "function [metricOut, info] = bwaSelectCanonicalMetricSummary(result, metricName, varargin)",
+      "function metricOut = localSelectNativeCanonicalMetric(result, metricName, dataView)",
+      "function metricOut = localSelectRecommendedCanonicalMetric(result, metricName)",
+      "function [tablesOut, regOut, tname, ycol] = localResolvePromotedMetricView(result, promotedMetricID, dataView)",
+      "function epochTable = localResolveEpochTable(result, dataView)",
+      "function out = localResolveDisplayName(metricID)",
+      "function promotedMetricID = localMapCanonicalToPromoted(metricName)"
+    ]
+  },
+  {
+    "file": "analysis/Utils/bwaValidateSpiderScale.m",
+    "lines": 24,
+    "functions": [
+      "function scale = bwaValidateSpiderScale(scaleIn, polData, msgPrefix)"
+    ]
+  },
+  {
+    "file": "analysis/Utils/bwaWriteCapabilityExportArtifacts.m",
+    "lines": 38,
+    "functions": [
+      "function out = bwaWriteCapabilityExportArtifacts(exportDir, result)",
+      "function T = capabilitySummaryTable(caps)"
+    ]
+  },
+  {
+    "file": "analysis/Utils/bwaWriteMetricVocabularyArtifacts.m",
+    "lines": 23,
+    "functions": [
+      "function out = bwaWriteMetricVocabularyArtifacts(exportDir, result)"
+    ]
+  },
+  {
+    "file": "analysis/Utils/bwaWriteNormalizationExportArtifacts.m",
+    "lines": 24,
+    "functions": [
+      "function out = bwaWriteNormalizationExportArtifacts(exportDir, result)"
+    ]
+  },
+  {
+    "file": "analysis/Workflow/MulticellGraph/build_event_cell_adjacency_graph.m",
+    "lines": 598,
+    "functions": [
+      "function out = build_event_cell_adjacency_graph(source, varargin)",
+      "function [result, BWA_AQ2, filesTbl, sourcePath] = localResolveAdjacencySource(source)",
+      "function eventUID = localEventUIDFromResultIndex(result, eventID)",
+      "function T = localResolveEventPartitionAdj(result, eventUID)",
+      "function eventID = localEventIndexFromUIDAdj(BWA_AQ2, eventUID)",
+      "function fileIDs = localEventFileIDsAdj(BWA_AQ2)",
+      "function fileID = localEventFileIDAdj(BWA_AQ2, eventID)",
+      "function [imageSz, spatialRes, frameRateS] = localEventImagingMetaAdj(BWA_AQ2, eventID)",
+      "function c = localCanonCellstrAdj(v)",
+      "function footMask = localEventFootprintMaskAdj(BWA_AQ2, eventID, imageSz)",
+      "function mask = localExplorerFrameMaskAdj(xSpaTemp_ID, frameNum, sx, sy, sz3)",
+      "function [masks, filesTbl] = localResolveCellMasksAdj(BWA_AQ2, filesTbl, sourcePath, eventID, fileID)",
+      "function masks = localExtractCellMasksAdj(s)",
+      "function nodes = localBuildNodeTable(P, masks, fileID, filesTbl, footMask, spatialRes)",
+      "function edges = localBuildEdgeTable(nodes, maxGapPx, spatialRes)",
+      "function [gapPx, touches] = localPartitionGapAdj(M1, M2)",
+      "function maskOut = localMaskLikeAdj(maskIn, imageSize2D)",
+      "function name = localFirstPresentAdj(names, candidates)",
+      "function idx = localCellIndexFromUIDAdj(cellUID, fileID, filesTbl)",
+      "function uid = localPrimaryCellUIDAdj(nodes)",
+      "function lbl = localCellLabelAdj(cellUID)",
+      "function hFig = localPlotAdjacencyGraph(out, visible)",
+      "function color = localDelayColorAdj(v, vmin, vmax, cmap)",
+      "function localAddTimingStripAdj(hFig, cb, nodes, delayMin, delayMax, delayScale, cmap)"
+    ]
+  },
+  {
+    "file": "analysis/Workflow/MulticellGraph/build_event_corridor_bundle.m",
+    "lines": 188,
+    "functions": [
+      "function out = build_event_corridor_bundle(source, varargin)",
+      "function score = localBundleCorridorScore(C, rankScore)",
+      "function hFig = localPlotCorridorBundle(out, visible)"
+    ]
+  },
+  {
+    "file": "analysis/Workflow/MulticellGraph/build_event_pair_corridor.m",
+    "lines": 1321,
+    "functions": [
+      "function out = build_event_pair_corridor(source, varargin)",
+      "function beamsOut = localUniqueParamStates(beamsIn)",
+      "function v = localRoundOrZero(v, digits)",
+      "function tf = localBeamConverged(beams)",
+      "function feat = localPairFeatureStruct(srcMask, tgtMask, delaySec, targetWidthLocal)",
+      "function mask = localFillSmallHoles(mask, maxHoleArea)",
+      "function [srcSeedMask, tgtSeedMask] = localInteriorSeeds(srcMask, tgtMask, footMask, srcInteriorFrac, tgtInteriorFrac)",
+      "function idx = localResolveNodeIdxPair(nodes, cellLabel)",
+      "function baseMask = localPairTrialBase(footMask, srcMask, tgtMask)",
+      "function outcome = localJudgeCorridorOutcome(supportMask, pathXY, srcSeedMask, tgtSeedMask, srcMask, tgtMask, footMask, targetWidth)",
+      "function params = localAdjustCorridorParams(params, outcome)",
+      "function score = localOutcomeObjective(outcome, pathXY, targetWidth)",
+      "function v = localGetOutcomeField(outcome, fieldName)",
+      "function candidates = localGenerateParamCandidates(params, iter)",
+      "function seedMask = localInteriorCandidateMask(mask, interiorFrac)",
+      "function [srcAnchorLin, borderAnchorLin, tgtAnchorLin] = localPickCorridorAnchors(footMask, delaySec, srcMask, tgtMask, srcSeedMask, tgtSeedMask)",
+      "function [pathXY, pathDelaySec, supportMask, srcPlotAnchorLin, tgtPlotAnchorLin] = localExtractCorridorPath(footMask, delaySec, srcMask, tgtMask, srcAnchorLin, borderAnchorLin, tgtAnchorLin, smoothSigma, interpScale, turnPenalty, edgeBandFrac, corridorRadiusPx, corridorCostSlack, corridorAdaptive, targetWidthWeight)",
+      "function smoothWeight = localSmoothCostField(weightImg, footMask, smoothSigma)",
+      "function [pathXY, pathDelaySec, supportMaskOut] = localExtractInterpolatedBandPath(supportBand, smoothWeight, delaySec, srcMask, tgtMask, pathLinFallback, interpScale, baseSize, corridorRadiusPx, corridorCostSlack, turnPenalty, corridorAdaptive, targetWidthWeight)",
+      "function pathLin = localShortestPathOnMask(mask, weightImg, srcLin, tgtLin, turnPenalty)",
+      "function linOut = localScaleLin(szIn, linIn, scale, szOut)",
+      "function linOut = localScaleBackLin(linIn, szIn, scale, szOut)",
+      "function mask = localKeepComponentTouchingMasks(mask, srcMask, tgtMask)",
+      "function [pathLin, srcLin, tgtLin] = localShortestPathBetweenMasks(mask, weightImg, srcMask, tgtMask, turnPenalty)",
+      "function pathLin = localDirectionalShortestPathToMask(mask, weightImg, srcCandidates, targetLin, turnPenalty)",
+      "function xy = localUniqueRowsRounded(xy)",
+      "function D = localGrayDistFromLin(weightImg, seedLin)",
+      "function supportMask = localExpandCorridorRegion(baseMask, costImg, srcMask, tgtMask, radiusPx, costSlack, adaptive, targetWidthWeight)",
+      "function targetWidth = localEstimateTargetWidth(baseMask, srcMask, tgtMask)",
+      "function mask = localCorridorCoreAtSlack(baseMask, costImg, srcMask, tgtMask, radiusPx, refCost, slack)",
+      "function stats = localCorridorSimplicity(mask, srcMask, tgtMask, costImg)",
+      "function m = pathLinMask(mask, pathLin)",
+      "function frac = localInteriorReachFrac(supportMask, cellMask)",
+      "function frac = localTargetSpillFrac(supportMask, srcMask, tgtMask)",
+      "function frac = localMaskOccupancyFrac(supportMask, cellMask)",
+      "function pathLin = localCenterlineFromSupport(supportMask, weightImg, srcMask, tgtMask, turnPenalty)",
+      "function pathLin = localDirectionalShortestPath(mask, weightImg, seedLin, targetLin, turnPenalty)",
+      "function mask = localKeepConnectedComponent(mask, anchorLin)",
+      "function lin = localNearestTruePixel(mask, anchorLin)",
+      "function xy = localLinToXY(sz, lin)",
+      "function vals = localUniqueStable(vals)",
+      "function nbr = localNeighborLin(sz, r, c)",
+      "function hFig = localPlotPairCorridor(out, visible)"
+    ]
+  },
+  {
+    "file": "analysis/Workflow/MulticellGraph/build_event_pixel_activation_map.m",
+    "lines": 280,
+    "functions": [
+      "function out = build_event_pixel_activation_map(source, varargin)",
+      "function [result, BWA_AQ2, sourcePath] = localResolvePixelSource(source)",
+      "function eventUID = localEventUIDFromResultIndexPixel(result, eventID)",
+      "function eventID = localEventIndexFromUIDPixel(BWA_AQ2, eventUID)",
+      "function fileIDs = localEventFileIDsPixel(BWA_AQ2)",
+      "function fileID = localEventFileIDPixel(BWA_AQ2, eventID)",
+      "function [imageSz, spatialRes, frameRateS] = localEventImagingMetaPixel(BWA_AQ2, eventID)",
+      "function c = localCanonCellstrPixel(v)",
+      "function zeroFrame = localBranchOriginFramePixel(result, BWA_AQ2, eventUID, eventID)",
+      "function postOriginFrameMap = localPostOriginActivationFrameMapPixel(BWA_AQ2, eventID, imageSz, zeroFrame)",
+      "function [firstFrameMap, t0, t1] = localFirstActivationFrameMapPixel(BWA_AQ2, eventID, imageSz)",
+      "function mask = localExplorerFrameMaskPixel(xSpaTemp_ID, frameNum, sx, sy, sz3)",
+      "function hFig = localPlotPixelActivationMap(out, visible, delayUnits)"
+    ]
+  },
+  {
+    "file": "analysis/Workflow/MulticellGraph/build_event_propagation_skeleton.m",
+    "lines": 204,
+    "functions": [
+      "function out = build_event_propagation_skeleton(source, varargin)",
+      "function [nodeMask, nodeTbl] = localBuildNodeGroups(skelMask, nodePts, nodeRadiusPx)",
+      "function [segMask, segTbl] = localBuildSegments(skelMask, nodeMask, delaySec, spatialRes)",
+      "function T = localAssignCellsToSegments(nodes, segTbl, spatialRes)",
+      "function hFig = localPlotPropagationSkeleton(out, visible)"
+    ]
+  },
+  {
+    "file": "analysis/Workflow/MulticellGraph/build_event_structure_diagnostic.m",
+    "lines": 218,
+    "functions": [
+      "function out = build_event_structure_diagnostic(source, varargin)",
+      "function [simpleMask, skelMask, branchPts, endpointPts, bottleneckPts, widthPx] = localExtractStructureFeatures(footMask, simplifyRadiusPx, spurLengthPx)",
+      "function simpleMask = localSimplifyMask(mask, radiusPx)",
+      "function pts = localMaskToPoints(mask)",
+      "function hFig = localPlotStructureDiagnostic(out, visible, delayUnits)"
+    ]
+  },
+  {
+    "file": "analysis/Workflow/MulticellGraph/build_event_upstream_candidates.m",
+    "lines": 220,
+    "functions": [
+      "function out = build_event_upstream_candidates(source, varargin)",
+      "function idx = localResolveTargetNodeIdx(nodes, targetCell)",
+      "function [validFrac, monotoneFrac, meanStepSec] = localDelayPathStats(delaySec, footMask, x1, y1, x2, y2)",
+      "function score = localCandidateScore(minGapUm, touches, validFrac, monotoneFrac, delayDiffFrames)",
+      "function hFig = localPlotUpstreamCandidates(out, visible)"
+    ]
+  },
+  {
+    "file": "analysis/Workflow/MulticellGraph/pair_corridor_fit_memory.m",
+    "lines": 156,
+    "functions": [
+      "function varargout = pair_corridor_fit_memory(action, varargin)",
+      "function [paramsOut, meta] = localWarmStart(featureStruct, paramsDefault)",
+      "function localRecord(featureStruct, params, outcome, score)",
+      "function S = localLoadStore()",
+      "function p = localStorePath()",
+      "function e = localEmptyEntry()",
+      "function v = localFeatureVector(s)"
+    ]
+  },
+  {
+    "file": "analysis/Workflow/apply_branch_origin_ownership.m",
+    "lines": 288,
+    "functions": [
+      "function [canonicalOut, info] = apply_branch_origin_ownership(canonicalOut, BWA_AQ2, varargin)",
+      "function uid = localResolveBranchOwnerCellUID(BWA_AQ2, cellsTbl, eventID, pt)",
+      "function W = localOwnershipWavefront(BWA_AQ2, eventID, G, spatialResEvent, opts)",
+      "function idx = localNearestCellByCentroid(allMasks, candidateIdx, pt)",
+      "function v = localScalarField(S, field)",
+      "function v = localFieldXY(S, field, col)",
+      "function [imageSz, spatialRes] = localEventMetaForOwnership(BWA_AQ2, eventID, fileIDs)",
+      "function c = localCanonCellstr(v)"
+    ]
+  },
+  {
+    "file": "analysis/Workflow/augment_polars_with_cell_metrics.m",
+    "lines": 610,
+    "functions": [
+      "function polData = augment_polars_with_cell_metrics(result, polData)",
+      "function vals = computeRegistryBranchValues(metricID, regRow, tables, files)",
+      "function vals = computeRegistryBranchEntityValues(metricID, regRow, tables)",
+      "function valsByFile = computeRegistryBranchEntityValuesByFile(metricID, regRow, tables, files)",
+      "function vals = computeEventAnalogBranchValues(metricID, tables, files)",
+      "function vals = computeEventAnalogEntityValues(metricID, tables)",
+      "function valsByFile = computeEventAnalogEntityValuesByFile(metricID, tables, files)",
+      "function [tname, valCol, agg] = eventAnalogSpec(metricID, tables)",
+      "function name = pickFirstAvailableColumn(tables, tname, candidates)",
+      "function v = meanCnoPairByEvent(T, col)",
+      "function v = meanCnoPair(T, col)",
+      "function v = meanCnoPairRecruitedOnly(T, col)",
+      "function v = meanCnoPairRecruitedCountByEvent(T, col)",
+      "function ids = defaultSpiderCellMetricIDs()",
+      "function ids = defaultSpiderSliceMetricIDs()",
+      "function cells = getEntityValueCells(polData, fieldName, nLabels)",
+      "function key = chooseEntityKey(T, kind)",
+      "function vals = combinedPostEntityValues(T, valCol, entityKey)",
+      "function vals = combinedPostValuesByEventAny(T, valCol)",
+      "function vals = combinedPostValuesByEventMean(T, valCol, maskCol, maskValue)",
+      "function vals = combinedPostValuesByEventCount(T, valCol)",
+      "function id = makeEntityID(T, key)"
+    ]
+  },
+  {
+    "file": "analysis/Workflow/build_local_metrics_schema.m",
+    "lines": 1630,
+    "functions": [
+      "function M = build_local_metrics_schema(canonicalOut, canonicalNorm, ctx, epochSpec, varargin)",
+      "function T = buildCellFrequencyTable(canonicalOut, canonicalNorm)",
+      "function [eventSpread, cellSpread] = computeCellSpreadTables(canonicalOut, ctx, epochSpec, thresholdPct)",
+      "function [eventSoma, cellSoma] = computeSomaTables(canonicalOut, epochSpec, somaNetMoveThresholdPx)",
+      "function [eventShape, cellShape] = computeShapeTables(canonicalOut, canonicalNorm, epochSpec)",
+      "function [eventPropagation, cellPropagation] = computePropagationTables(canonicalOut, canonicalNorm, epochSpec, thresholdPx)",
+      "function [eventCanonical, cellCanonical] = computeCanonicalTables(canonicalOut, canonicalNorm, epochSpec)",
+      "function [eventBoundary, cellBoundary] = computeBoundaryTables(canonicalOut, canonicalNorm, epochSpec, escapeThresholdFrac)",
+      "function [eventPartition, cellRecruitment, sliceRecruitment] = computePartitionTables(canonicalOut, epochSpec)",
+      "function T = legacySpreadLookup(ctx, thresholdPct)",
+      "function sliceNetwork = computeSliceNetworkTables(canonicalOut, canonicalNorm, epochSpec, coincidenceWindowSec, burstBinSec, burstMinEvents, corrBinSec)",
+      "function tSec = localEventStartSec(T)",
+      "function rate = localCoincidenceRate(tSec, cellIDs, winSec)",
+      "function frac = localBurstFraction(tSec, startSec, endSec, binSec, minEvents)",
+      "function rho = localMeanPairwiseCellCorrelation(tSec, cellIDs, startSec, endSec, binSec)",
+      "function [startSec, endSec] = localEpochWindowSec(epochSpec, epochIdx, frameRateS, nFrames, tSecObserved)",
+      "function [Eraw, Enorm] = canonicalEventTables(canonicalOut, canonicalNorm, epochSpec, requiredCols)",
+      "function Tout = addNormColumns(Tout, Tnorm, vars)",
+      "function Tcell = summarizeCellMetricTable(Tevent, metricPairs)",
+      "function frac = localGroupedFraction(T, keyCols, boolCol)",
+      "function T = attachFileCalibration(T, canonicalOut)",
+      "function vals = convertPxToUmColumn(T, pxCol, spatialResCol)",
+      "function vals = convertFramesToSecColumn(T, frameCol, frameRateCol)",
+      "function normVals = localNormByCellBaseline(T, metricCol, keyCols, epsVal)",
+      "function out = localMetricNormTransform(varargin)",
+      "function T = emptyRegistry()",
+      "function T = addRegistryRow(T, metricID, unitLevel, sourceTable, rawCol, normCol, supportsNorm, defaultCmp, defaultPlot)",
+      "function [G, grpTbl] = localGroupRows(T, cols)",
+      "function s = toKey(v)"
+    ]
+  },
+  {
+    "file": "analysis/Workflow/build_metric_qc_report.m",
+    "lines": 118,
+    "functions": [
+      "function T = build_metric_qc_report(canonicalOut, derivedStandard)",
+      "function rows = addDerivedRows(rows, S)",
+      "function rows = addCompRow(rows, metricName, comp)",
+      "function r = rowTemplate()",
+      "function v = getFieldOrNaN(S, f)",
+      "function v = getFieldOrDefault(S, f, d)"
+    ]
+  },
+  {
+    "file": "analysis/Workflow/bwaWritePost2FrequencyExports.m",
+    "lines": 73,
+    "functions": [
+      "function exports = bwaWritePost2FrequencyExports(outputDir, result)",
+      "function cols = presentColumns(T, requested)",
+      "function S = summarizeRates(T, groupCols)"
+    ]
+  },
+  {
+    "file": "analysis/Workflow/compute_local_file_metrics.m",
+    "lines": 72,
+    "functions": [
+      "function out = compute_local_file_metrics(source, datTree, varargin)",
+      "function ctx = get_derived_context(result)",
+      "function ctx = rebuild_derived_context(result)"
+    ]
+  },
+  {
+    "file": "analysis/Workflow/compute_local_mode_stats.m",
+    "lines": 88,
+    "functions": [
+      "function stats = compute_local_mode_stats(out, mode, opts)",
+      "function compVar = resolveComparisonVar(mode, T)",
+      "function v = getFieldOr(s, f, d)"
+    ]
+  },
+  {
+    "file": "analysis/Workflow/compute_local_summary_significance.m",
+    "lines": 275,
+    "functions": [
+      "function out = compute_local_summary_significance(source, varargin)",
+      "function families = normalizeMetricFamiliesLocal(in)",
+      "function tf = familyMatchesMetricLocal(metricID, families, reg)",
+      "function out = resolveMetricDisplayName(metricID, vocabRow)"
+    ]
+  },
+  {
+    "file": "analysis/Workflow/describe_local_analysis_result.m",
+    "lines": 38,
+    "functions": [
+      "function out = describe_local_analysis_result(source)",
+      "function out = tfLabel(tf)"
+    ]
+  },
+  {
+    "file": "analysis/Workflow/describe_metric_lineage.m",
+    "lines": 51,
+    "functions": [
+      "function out = describe_metric_lineage(source, metricID)"
+    ]
+  },
+  {
+    "file": "analysis/Workflow/ensure_local_polars_payload.m",
+    "lines": 175,
+    "functions": [
+      "function [polData, result, meta] = ensure_local_polars_payload(source, varargin)",
+      "function tf = hasEntityPolars(polData)",
+      "function tf = hasEntityPolarsByFile(polData)",
+      "function tf = hasRequiredPolars(polData)",
+      "function polData = rebuildPolars(result)",
+      "function tfre = epochSpecFromEpochTable(T)"
+    ]
+  },
+  {
+    "file": "analysis/Workflow/explore_local_event_motion.m",
+    "lines": 1303,
+    "functions": [
+      "function out = explore_local_event_motion(source, varargin)",
+      "function loadEventState(hFig, eventID)",
+      "function W = applyPrototypeWavefrontExplorer(W, proto)",
+      "function renderLoadingPreview(hFig, eventID, imageSz, spatialRes)",
+      "function renderFrame(hFig, frameNow)",
+      "function cent = localAdaptiveCentroidForDisplay(G, W)",
+      "function [ctr, area, ok] = localStableCentroidComponent(mask, refPt)",
+      "function [BWA_AQ2, label, eventList, filesTbl] = resolveLocalEventMotionSourceLocal(source)",
+      "function eventID = localResolveInitialEventID(eventList, requested)",
+      "function txt = localEventLabel(BWA_AQ2, filesTbl, eventPos, nSelectable, eventID)",
+      "function localLabel = localFileEventLabel(BWA_AQ2, eventID)",
+      "function fileLabel = localShortFileLabel(BWA_AQ2, filesTbl, eventID)",
+      "function filesTbl = localResolveFilesTable(result, fallbackTbl)",
+      "function eventList = localResultEventList(result, BWA_AQ2)",
+      "function sourcePath = localResolveSourcePathExplorer(source, fallbackLabel)",
+      "function T = localResolveEventPartitionTableExplorer(source)",
+      "function [img, R] = buildExplorerBackground(fts, G, imageSz, spatialRes, eventID, frameNow)",
+      "function [overlay, S] = localBuildEventCellOverlayExplorer(S, eventID)",
+      "function delayFrames = localResolveCellOverlayDelayFramesExplorer(rows, cellCol, cellUID)",
+      "function orderRank = localResolveCellOverlayOrderExplorer(delayFrames, isPrimary)",
+      "function colors = localResolveCellOverlayColorsExplorer(delayFrames, isPrimary)",
+      "function [masks, S] = localResolveCellMasksForEventExplorer(S, eventID, fileID)",
+      "function masks = localCurrentLegacyMasksIfMatchingFile(BWA_AQ2, filesTbl, eventID, fileID)",
+      "function masks = localLoadCellMasksFromLocalAQuAFile(sourcePath, filesTbl, fileID)",
+      "function masks = localExtractCellMasksFromStructExplorer(s)",
+      "function v = localGetFieldPathExplorer(s, path)",
+      "function fileIDs = localEventFileIDsExplorer(BWA_AQ2)",
+      "function fileID = localEventFileIDExplorer(BWA_AQ2, eventID)",
+      "function eventUID = localEventUIDFromIndexExplorer(BWA_AQ2, eventID)",
+      "function name = localFirstPresentExplorer(names, candidates)",
+      "function idx = localCellIndexFromUIDExplorer(cellUID, fileID, filesTbl)",
+      "function txt = localCellOverlayStatusExplorer(overlay)",
+      "function footMask = localGeometryFootprintMask(G, imageSize2D)",
+      "function footMask = localEventFootprintMaskExplorer(BWA_AQ2, eventID)",
+      "function maskOut = localMaskLikeImageSize(maskIn, imageSize2D)",
+      "function [img, R] = buildExplorerFootprintPreview(fts, imageSz, spatialRes, eventID)",
+      "function mask = explorerFrameMask(xSpaTemp_ID, frameNum, sx, sy, sz3)",
+      "function img = applyMaskColorExplorer(img, mask, color)",
+      "function [imageSz, spatialRes] = localEventImagingMetaExplorer(BWA_AQ2, eventID)",
+      "function c = canonCellstrLocalExplorer(v)",
+      "function h = plotTrackRunsExplorer(ax, frames, pts, color)",
+      "function eventID = localEventIndexFromUID(BWA_AQ2, eventUID)"
+    ]
+  },
+  {
+    "file": "analysis/Workflow/export_local_analysis_spider_mean_set.m",
+    "lines": 425,
+    "functions": [
+      "function out = export_local_analysis_spider_mean_set(source, varargin)",
+      "function specs = defaultPanelSpecs()",
+      "function exportDir = resolveSpiderMeanExportDir(source, result, override, subdirName)",
+      "function closeIfGraphics(outMean)",
+      "function T = buildMetricExplanationTable(statsPanel)",
+      "function out = firstStringOrEmpty(T, varName)",
+      "function writeHumanReadableGlossary(T, outFile)",
+      "function title = familyTitle(fam)",
+      "function desc = explainSpiderMetric(metric)",
+      "function rule = inferAggregationRule(metric)"
+    ]
+  },
+  {
+    "file": "analysis/Workflow/filter_spider_metric_families.m",
+    "lines": 84,
+    "functions": [
+      "function polData = filter_spider_metric_families(polData, varargin)",
+      "function polData = orderSpiderPolars(polData)",
+      "function polData = subsetSpiderPolars(polData, labels, keep)"
+    ]
+  },
+  {
+    "file": "analysis/Workflow/flatten_local_summary_significance.m",
+    "lines": 120,
+    "functions": [
+      "function T = flatten_local_summary_significance(source, varargin)",
+      "function T = collectFamilyRows(familyName, S, excludeMetrics)",
+      "function T = collectRows(familyName, metricName, item)",
+      "function T = filterPreferredSummaryRows(T)"
+    ]
+  },
+  {
+    "file": "analysis/Workflow/list_local_legacy_metric_keys.m",
+    "lines": 131,
+    "functions": [
+      "function out = list_local_legacy_metric_keys(source)",
+      "function keys = filterPreferredCellMetricKeys(keys)"
+    ]
+  },
+  {
+    "file": "analysis/Workflow/list_top_recruited_events.m",
+    "lines": 178,
+    "functions": [
+      "function T = list_top_recruited_events(source, varargin)",
+      "function result = localResolveResult(source)",
+      "function eventPartition = localRequireEventPartition(result)",
+      "function T = localApplyFilters(T, epochName, fileID)",
+      "function cellVar = localPickCellVar(T)",
+      "function eventsTbl = localResolveEventsTable(source, result)"
+    ]
+  },
+  {
+    "file": "analysis/Workflow/load_local_analysis_result.m",
+    "lines": 36,
+    "functions": [
+      "function result = load_local_analysis_result(source)"
+    ]
+  },
+  {
+    "file": "analysis/Workflow/local_analysis_plot_helpers.m",
+    "lines": 63,
+    "functions": [
+      "function dataType = datTreeToDataType(datTree)",
+      "function BWA_sub = reduceBWAByFiles(BWA, fileIDs, filesTbl, eventsTbl)",
+      "function memberlist = computeMemberlistForBWA(BWA, opts, DB)",
+      "function polSub = subsetPolarsData(polData, fileIDs)"
+    ]
+  },
+  {
+    "file": "analysis/Workflow/local_analysis_result_helpers.m",
+    "lines": 36,
+    "functions": [
+      "function result = load_local_analysis_result(source)"
+    ]
+  },
+  {
+    "file": "analysis/Workflow/plotPost2FrequencyFigures.m",
+    "lines": 130,
+    "functions": [
+      "function files = plotPost2FrequencyFigures(result, figureSpecPath, outputDir)",
+      "function style = resolveStyle(spec)",
+      "function groups = comparisonGroups(panel)",
+      "function color = groupColor(style,bath,stim)",
+      "function [x,Y] = cellEpochMatrix(T)",
+      "function R = recordingSummary(T)",
+      "function [x,Y] = recordingEpochMatrix(R)",
+      "function labels = epochLabels(T)",
+      "function applySharedYLimits(axs,style), if ~style.share_y,return,end; axs=axs(isgraphics(axs)); lo=min(arrayfun(@(a)a.YLim(1),axs)); hi=max(arrayfun(@(a)a.YLim(2),axs)); pad=style.padding*(hi-lo);if pad==0,pad=1;end;set(axs,'YLim',[lo-pad hi+pad]);end",
+      "function lim=paddedLimits(x),x=x(isfinite(x));if isempty(x),lim=[-1 1];return,end;pad=.08*range(x);if pad==0,pad=1;end;lim=[min(x)-pad max(x)+pad];end",
+      "function file=exportFigure(f,out,stem),file=fullfile(out,stem+\".png\");exportgraphics(f,file,'Resolution',180);savefig(f,fullfile(out,stem+\".fig\"));end",
+      "function out=structList(value),if ~iscell(value),out=value;return,end;names=strings(0,1);for ii=1:numel(value),names=unique([names;string(fieldnames(value{ii}))],'stable');end;out=repmat(cell2struct(cell(numel(names),1),cellstr(names),1),numel(value),1);for ii=1:numel(value),f=fieldnames(value{ii});for jj=1:numel(f),out(ii).(f{jj})=value{ii}.(f{jj});end,end,end"
+    ]
+  },
+  {
+    "file": "analysis/Workflow/plot_local_analysis_cell_spider.m",
+    "lines": 868,
+    "functions": [
+      "function out = plot_local_analysis_cell_spider(source, cellID, varargin)",
+      "function families = normalizeFamilies(in)",
+      "function families = defaultCellSpiderFamilies()",
+      "function combineEpochNames = inferDefaultCombineEpochs(result)",
+      "function label = inferDefaultCombineLabel(result)",
+      "function rows = collectCellSpiderRows(result, cellID, metricFamilies, selectionMode, dataView, baselineEpoch, combineEpochNames)",
+      "function rows = collectCanonicalRows(result, cellID, dataView, baselineEpoch, combineEpochNames, excludeIDs, metricFamilies)",
+      "function rows = collectEventRows(result, cellID, dataView, baselineEpoch, combineEpochNames, excludeIDs, metricFamilies, canonicalConcepts)",
+      "function metricContainer = selectMetricContainer(result, dataView, preferredTransform)",
+      "function mOut = selectCanonicalMetricForCellSpider(result, metricID, dataView)",
+      "function [baselineVals, postVals, fileID] = extractCellEpochValues(T, cellID, baselineEpoch, combineEpochNames, metricID, varargin)",
+      "function vals = aggregateEventRows(T, valCol)",
+      "function row = makeRow(metricID, fileID, baselineVals, postVals)",
+      "function rows = enrichCellSpiderRows(rows, prc, sigAlpha)",
+      "function [pVal, method] = computeRowPValue(baselineVals, postVals)",
+      "function tbl = buildMetricSummaryTable(rows)",
+      "function [mB, mP, sB, sP, labels, fileID] = buildScaledSpiderArrays(rows, showScaleInLabels)",
+      "function label = decorateLabel(row, showScaleInLabels)",
+      "function txt = formatScaleNumber(x)",
+      "function [hFig, hAx] = resolvePlotAxesLocal(hFig, hAx, figName)",
+      "function fs = inferHeaderFontSize(style)",
+      "function drawSpiderGrid(hAx, theta, style)",
+      "function drawBand(hAx, theta, mu, se, color, alphaVal)",
+      "function drawEventPoints(hAx, theta, rows, jitterFrac, colorB, colorP, style)",
+      "function h = plotSpiderPolygon(hAx, theta, mu, color, lineStyle, lw)",
+      "function drawMetricLabels(hAx, theta, labels, style)",
+      "function drawSignificanceStars(hAx, theta, rows, style, ~)",
+      "function txt = buildHeaderText(prov, cellID, fileID, baselineEpoch, postLabel)",
+      "function out = compactCellID(cellID)",
+      "function prov = resolveCellSpiderProvenance(result, rows, dataView)",
+      "function [x,y] = pol2cartWrap(theta, r)",
+      "function [bScaled, pScaled] = scaleRowValues(row)",
+      "function v = meanOmitNaN(x)",
+      "function v = semOmitNaN(x)",
+      "function col = resolveCellColumn(T)",
+      "function valueCol = inferValueColumnFromTable(T, metricID)",
+      "function valueCols = pickEventLocalValueColumnsForCellSpider(T, dataView)",
+      "function out = stripEventLocalColumnPrefix(vcol)",
+      "function ids = filterPreferredCanonicalMetricIDs(ids)",
+      "function key = metricConceptKey(metricID)",
+      "function label = formatCellSpiderLabel(metricID)"
+    ]
+  },
+  {
+    "file": "analysis/Workflow/plot_local_analysis_file_metrics.m",
+    "lines": 73,
+    "functions": [
+      "function out = plot_local_analysis_file_metrics(source, datTree, varargin)",
+      "function ctx = get_derived_context(result, caps)",
+      "function ctx = rebuild_derived_context(result, caps)"
+    ]
+  },
+  {
+    "file": "analysis/Workflow/plot_local_analysis_file_spider.m",
+    "lines": 285,
+    "functions": [
+      "function out = plot_local_analysis_file_spider(source, fileIDs, varargin)",
+      "function ok = hasRequiredFields(S, fields)",
+      "function scale = inferSpiderScale(result, polData)",
+      "function polSub = subsetPolarsDataLocal(polData, fileIDs)",
+      "function polData = attachSpiderFileLabels(result, polData)",
+      "function nv = struct2nv(S)",
+      "function mode = normalizeSpiderBranchMode(modeIn)",
+      "function tf = isSynchronyOnlySelection(metricFamilies)",
+      "function throwSpiderCapabilityError(errID, caps, rebuildMessage)"
+    ]
+  },
+  {
+    "file": "analysis/Workflow/plot_local_analysis_legacy_panels.m",
+    "lines": 859,
+    "functions": [
+      "function out = plot_local_analysis_legacy_panels(source, varargin)",
+      "function tfre = getEpochSpec(result)",
+      "function memberlist = inferMemberlist(comp)",
+      "function out = plotExtraDerivedPanels(stdOut, tfre, style, statsConfig, doByCellOnly, keepExtras, spiderCombineEpochNames, spiderCombinedEpochLabel)",
+      "function out = plotCellMetricPanels(result, tfre, style, statsConfig, keepCellMetrics, spiderCombineEpochNames, spiderCombinedEpochLabel)",
+      "function comp = buildCellMetricComp(T, tfre, metricID, rawCol, normCol, filesMeta)",
+      "function ft = buildFilesTblForLabels(T, keepN, filesMeta)",
+      "function y = computeBaselineLog2PerCell(raw, ep, cells)",
+      "function namesOut = resolveMetricKeys(available, requested)",
+      "function out = normalizeKey(in)",
+      "function addAlias(map, alias, canonical)",
+      "function tf = hasNameValueArg(args, name)",
+      "function out = filterExtraPanels(out, requested)",
+      "function keys = resolveExtraKeys(available, requested)",
+      "function keys = availableExtraKeys(stdOut)",
+      "function keys = resolveCellMetricKeys(result, requested)",
+      "function req = expandLegacyMetricFamilies(result, stdOut, families)",
+      "function req = suppressLegacyFamilyDuplicates(req)",
+      "function keys = filterPreferredLegacyGroupCellKeys(keys)"
+    ]
+  },
+  {
+    "file": "analysis/Workflow/plot_local_analysis_spider.m",
+    "lines": 244,
+    "functions": [
+      "function out = plot_local_analysis_spider(source, varargin)",
+      "function polData = fillSpiderDefaults(polData)",
+      "function mode = normalizeSpiderBranchMode(modeIn)",
+      "function ok = hasRequiredFields(S, fields)",
+      "function scale = inferSpiderScale(result, polData)",
+      "function polData = attachSpiderFileLabels(result, polData)",
+      "function nv = struct2nv(S)",
+      "function name = spiderFigureNameForFamilies(metricFamilies)",
+      "function tf = isSynchronyOnlySelection(metricFamilies)",
+      "function throwSpiderCapabilityError(errID, caps, rebuildMessage)"
+    ]
+  },
+  {
+    "file": "analysis/Workflow/plot_local_analysis_spider_mean.m",
+    "lines": 1348,
+    "functions": [
+      "function out = plot_local_analysis_spider_mean(source, varargin)",
+      "function mode = normalizeSpiderBranchMode(modeIn)",
+      "function sigSource = resolveSigSource(sigSourceIn, branchMode)",
+      "function [aggregateEBy, aggregateCBy] = resolveSpiderMeanAggregation(branchMode, comparisonLevel, aggregateEIn, aggregateCIn)",
+      "function label = resolveComparisonLevelLabel(comparisonLevel, aggregateEBy, aggregateCBy)",
+      "function sources = resolveSpiderErrorSources(errorSourceIn, branchMode)",
+      "function labelsOut = relabelSpiderMeanMetrics(labelsIn, branchMode, comparisonLevel)",
+      "function [branchData, polData] = pruneSpiderMeanBranchData(branchData, polData, branchMode, comparisonLevel)",
+      "function branchData = subsetSpiderMeanBranchData(branchData, keep)",
+      "function polData = subsetSpiderMeanPolData(polData, keep)",
+      "function labelOut = relabelEventModeMetric(labelIn)",
+      "function throwSpiderCapabilityError(errID, caps, rebuildMessage)",
+      "function ax = findPrimaryAxes(hFig)",
+      "function h = drawSpiderErrorBand(ax, muLog2, errLog2, lims, varargin)",
+      "function h = drawSpiderErrorBars(ax, muLog2, errLog2, lims)",
+      "function h = drawSpiderEntityPoints(ax, valsLog2, lims, varargin)",
+      "function dth = localSpokeJitter(n)",
+      "function h = drawSpiderSignificanceMarkers(ax, sigMask, nMetrics)",
+      "function th = spokeTheta(idx, n)",
+      "function r = mapLog2ToRadius(v, lim)",
+      "function [mu, err] = computeMetricError(valsLog2, errType)",
+      "function [branchData, aggInfo] = buildSpiderMeanBranchData(polData, valsALog2, valsCLog2, spiderScale, aggregateEBy, aggregateCBy)",
+      "function branchData = buildSpiderMeanBranchDataStruct(polData, valsALog2, valsCLog2, spiderScale, aggregateEBy, aggregateCBy)",
+      "function [distCell, usedEntity] = metricDistributionsForBranch(polData, fallbackLog2, spiderScale, branchName, aggregateBy)",
+      "function mu = meanByMetricDistribution(distCell)",
+      "function [distCell, nMetrics] = normalizeMetricDistributions(valsLog2)",
+      "function S = computeMetricSignificance(branchData, sigSource, sigMethod, alpha)",
+      "function T = buildStatsSummaryTable(Tlong)",
+      "function T = sortSpiderStatsTable(T)",
+      "function sources = resolveStatSources(sigSource)",
+      "function [pval, used] = oneSampleP(v, method)",
+      "function labelsOut = decorateSpiderMeanLabelsWithUnits(labelsIn)",
+      "function out = decorateSpiderMeanLabel(in)",
+      "function out = abbreviateSpiderMeanBaseLabel(in)",
+      "function out = spiderMeanLabelUnit(in)",
+      "function p = trySignrank(v)",
+      "function p = tryTtest(v)",
+      "function y = convertToLog2(x, inputScale)",
+      "function lims = resolvePanelLimitFromPolars(valuesA, valuesC, inputScale, userLimit, nMetrics, scaleMode, clipPct)",
+      "function ok = hasRequiredFields(S, fields)",
+      "function scale = inferSpiderScale(result, polData)",
+      "function nv = struct2nv(S)",
+      "function hFig = displayStatsSummaryFigure(T, figName, statsInfo)",
+      "function h = addStatsInfoAnnotation(hFig, statsInfo, stats)",
+      "function tf = isSynchronyOnlySelection(metricFamilies)"
+    ]
+  },
+  {
+    "file": "analysis/Workflow/plot_local_analysis_summary.m",
+    "lines": 426,
+    "functions": [
+      "function figs = plot_local_analysis_summary(source, varargin)",
+      "function out = resolveMetricDisplayName(metricID, vocabRow)",
+      "function ids = filterPreferredMetricIDs(ids)",
+      "function families = normalizeMetricFamiliesLocal(in)",
+      "function tf = familyMatchesMetricLocal(metricID, families, reg)",
+      "function tf = shouldSkipRawMetricID(metricID, allMetricIDs)",
+      "function freqOut = selectCanonicalFrequencyForMetric(result, metricID)",
+      "function [tablesOut, regOut, rawCol, normCol] = selectMetricSchemaForView(result, reg, rowIdx, dataView)",
+      "function args = setNameValueArg(argsIn, key, value)",
+      "function [out, diag] = plotDerivedFromStandard(S, filesTbl, epochNames, metricArgs, includeOverlappingDerived, normCfg, metricFamilies)"
+    ]
+  },
+  {
+    "file": "analysis/Workflow/plot_local_event_motion.m",
+    "lines": 483,
+    "functions": [
+      "function out = plot_local_event_motion(source, eventID, varargin)",
+      "function W = applyPrototypeWavefrontStatic(W, proto)",
+      "function cent = localAdaptiveCentroidForDisplayStatic(G, W)",
+      "function [ctr, area, ok] = localStableCentroidComponentStatic(mask, refPt)",
+      "function h = plotTrackRuns(ax, frames, pts, color)",
+      "function eventID = localEventIndexFromUIDStatic(BWA_AQ2, eventUID)",
+      "function [BWA_AQ2, label] = resolveLocalEventMotionSource(source)",
+      "function [img, R] = buildLocalMotionBackground(fts, G, imageSz, spatialRes, eventID, modeIn, progressFrame, W)",
+      "function footMask = localGeometryFootprintMaskStatic(G, imageSize2D)",
+      "function maskOut = localMaskLikeImageSizeStatic(maskIn, imageSize2D)",
+      "function [imageSz, spatialRes] = localEventImagingMeta(BWA_AQ2, eventID)",
+      "function c = canonCellstrLocal(v)",
+      "function mask = localFrameMask(xSpaTemp_ID, frameNum, sx, sy, sz3)",
+      "function img = applyMaskColorLocal(img, mask, color)"
+    ]
+  },
+  {
+    "file": "analysis/Workflow/preflightSharedAnalysisProject.m",
+    "lines": 70,
+    "functions": [
+      "function preflight = preflightSharedAnalysisProject(manifestDir, varargin)",
+      "function [revision, dirty] = sharedGitProvenance(sharedRoot)"
+    ]
+  },
+  {
+    "file": "analysis/Workflow/prepare_local_analysis_spider_payload.m",
+    "lines": 51,
+    "functions": [
+      "function [result, polData, meta] = prepare_local_analysis_spider_payload(source, varargin)",
+      "function resultPath = resolveAnalysisResultPath(source)"
+    ]
+  },
+  {
+    "file": "analysis/Workflow/run_local_analysis_compute.m",
+    "lines": 529,
+    "functions": [
+      "function result = run_local_analysis_compute(varargin)",
+      "function vocab = buildMetricVocabulary(result)",
+      "function [canonicalNorms, metricsByTransform, normalizationByTransform, canonicalOut, canonicalNorm, metricsSchema, normMeta] = ...",
+      "function exportDir = getExportDir(pathIn, mode, override)",
+      "function [ctx, standard, polars, meta] = tryDerivedCompute(BWA_AQ2, canonicalOut, epochSpec, dataLimitRules, includeEventMotionDerived, spiderCombineEpochNames, spiderCombinedEpochLabel)",
+      "function shared = loadSharedAnalysisSpecs(opts)",
+      "function value = getOptionOr(opts, name, defaultValue)",
+      "function rules = resolveDataLimitRules(opts)",
+      "function tf = isNoOpPercentileLimit(pp)",
+      "function out = slimResultForExport(in)",
+      "function tf = localCanonicalHasAuthoritativeBranchOwnership(canonicalOut)",
+      "function [canonicalOut, canonicalNorm] = alignCanonicalFrequencyToCellMetric(canonicalOut, canonicalNorm, metricsSchema)"
+    ]
+  },
+  {
+    "file": "analysis/Workflow/run_local_canonical_by_mode.m",
+    "lines": 222,
+    "functions": [
+      "function [out, epochSpec, epochMeta, presetName] = run_local_canonical_by_mode(pathIn, mode, opts, qc, loaded, makePlots)",
+      "function [epochSpec, epochMeta, filesOverride] = resolveEpochSpec(pathIn, requestedPreset, loaded, opts, varargin)",
+      "function rules = resolveDataLimitRules(opts, plan)",
+      "function tf = isNoOpPercentileLimit(pp)",
+      "function v = getFieldOr(s, f, d)",
+      "function v = getPlanField(plan, f, d)",
+      "function v = firstOrNaN(T, varName)",
+      "function [epochSpec, epochMeta] = loadEpochSpecWithFallback(pathIn, requestedPreset, varargin)",
+      "function out = stripPresetArg(args)"
+    ]
+  },
+  {
+    "file": "analysis/Workflow/subsetLocalResultEvents.m",
+    "lines": 270,
+    "functions": [
+      "function out = subsetLocalResultEvents(result, varargin)",
+      "function keepUID = localResolveKeepUID(result, explicitUID, minCells, minRecruited, ...",
+      "function T = localBuildEventLevelTable(result)",
+      "function T = localMergeEventLevelSource(T, tables, tableName, keepCols)",
+      "function T = localBuildEventLevelTableFromCanonical(result)",
+      "function T = localAttachCanonicalMetricEventValues(T, metrics, metricField, valueName)",
+      "function subset = localSubsetCanonicalSubset(subset, keepUID)",
+      "function cells = localSubsetCellsByEventMap(subset, cells)",
+      "function name = localFirstPresent(names, candidates)",
+      "function out = localPruneSubsetResult(out, keepCanonicalMetrics, keepDerived)"
+    ]
+  },
+  {
+    "file": "analysis/tests/test_CorrelationStats.m",
+    "lines": 170,
+    "functions": [
+      "function tests = test_CorrelationStats",
+      "function testSliceCanonicalAndNetwork(testCase)",
+      "function testPrefersCalibratedCanonicalMetrics(testCase)",
+      "function testCellAndRecruitment(testCase)",
+      "function testAnimalAggregation(testCase)",
+      "function testCombinePostEpochs(testCase)",
+      "function testDefaultCellSelectionSuppressesRedundantSomaMetrics(testCase)",
+      "function testBroadCellSelectionRetainsSecondaryMetrics(testCase)",
+      "function R = makeToyResult()"
+    ]
+  },
+  {
+    "file": "analysis/tests/test_analysisPlanRunner.m",
+    "lines": 99,
+    "functions": [
+      "function tests = test_analysisPlanRunner",
+      "function testRunAnalysisPresetWithTemplateLikeConfig(testCase)",
+      "function makeConfigs(root)",
+      "function makeMiniRun(root)",
+      "function safeRmdir(pathIn)"
+    ]
+  },
+  {
+    "file": "analysis/tests/test_analysisPlanWriter.m",
+    "lines": 24,
+    "functions": [
+      "function tests = test_analysisPlanWriter",
+      "function testWriteAndLoadPreset(testCase)"
+    ]
+  },
+  {
+    "file": "analysis/tests/test_applyBranchOriginOwnership.m",
+    "lines": 43,
+    "functions": [
+      "function tests = test_applyBranchOriginOwnership",
+      "function testBranchOriginOwnershipReassignsPrimaryCell(testCase)"
+    ]
+  },
+  {
+    "file": "analysis/tests/test_assignEpochsToEvents.m",
+    "lines": 44,
+    "functions": [
+      "function tests = test_assignEpochsToEvents",
+      "function testFrameAssignment(testCase)",
+      "function testTimeAssignment(testCase)",
+      "function testMissingRangesErrors(testCase)"
+    ]
+  },
+  {
+    "file": "analysis/tests/test_attachEventFieldsFromCanonical.m",
+    "lines": 42,
+    "functions": [
+      "function tests = test_attachEventFieldsFromCanonical",
+      "function testReconstructsAndRespectsFileOrder(testCase)",
+      "function testNoOverwriteWhenAlreadyPresent(testCase)"
+    ]
+  },
+  {
+    "file": "analysis/tests/test_augmentPolarsWithCellMetrics.m",
+    "lines": 62,
+    "functions": [
+      "function tests = test_augmentPolarsWithCellMetrics",
+      "function testSpiderAllowlistIncludesSelectedRecruitmentAndNetworkMetrics(testCase)"
+    ]
+  },
+  {
+    "file": "analysis/tests/test_buildLocalMetricsNetwork.m",
+    "lines": 54,
+    "functions": [
+      "function tests = test_buildLocalMetricsNetwork",
+      "function testSliceNetworkMetricsFromCanonical(testCase)"
+    ]
+  },
+  {
+    "file": "analysis/tests/test_buildLocalMetricsNewCanonical.m",
+    "lines": 80,
+    "functions": [
+      "function tests = test_buildLocalMetricsNewCanonical",
+      "function testShapePropagationBoundaryMetrics(testCase)"
+    ]
+  },
+  {
+    "file": "analysis/tests/test_buildLocalMetricsPartition.m",
+    "lines": 57,
+    "functions": [
+      "function tests = test_buildLocalMetricsPartition",
+      "function testPartitionMetricsFromCanonicalMap(testCase)"
+    ]
+  },
+  {
+    "file": "analysis/tests/test_buildLocalMetricsSoma.m",
+    "lines": 57,
+    "functions": [
+      "function tests = test_buildLocalMetricsSoma",
+      "function testSomaMetricsFromCanonicalMap(testCase)"
+    ]
+  },
+  {
+    "file": "analysis/tests/test_bwaMakeSliceLabels.m",
+    "lines": 25,
+    "functions": [
+      "function tests = test_bwaMakeSliceLabels",
+      "function testUsesCanonicalDateSliceWhenAvailable(testCase)",
+      "function testFallsBackToUniqueLabels(testCase)"
+    ]
+  },
+  {
+    "file": "analysis/tests/test_computeLocalSummarySignificance.m",
+    "lines": 197,
+    "functions": [
+      "function tests = test_computeLocalSummarySignificance",
+      "function testComputeFromStructIncludesCanonicalAndCellMetrics(testCase)",
+      "function testNormViewUsesCanonicalNorm(testCase)",
+      "function testMetricListFiltersCanonicalOnly(testCase)",
+      "function testMetricFamiliesFilterCanonicalAndCellMetrics(testCase)",
+      "function testEventNativeRetainsPromotedCellMetricSurface(testCase)",
+      "function testCanonicalDefaultsToCellPromotedWhenAvailable(testCase)",
+      "function testCanonicalCanUseEventNativeWhenRequested(testCase)",
+      "function testCanonicalSelectorLabelsAggregationMode(testCase)",
+      "function result = makeSyntheticResult()"
+    ]
+  },
+  {
+    "file": "analysis/tests/test_computeMetricBySliceCanonical.m",
+    "lines": 62,
+    "functions": [
+      "function tests = test_computeMetricBySliceCanonical",
+      "function testComputesExpectedMeans(testCase)",
+      "function testMetricFilterDropsNaN(testCase)",
+      "function testMissingMetricErrors(testCase)",
+      "function [events, files, ep] = makeFixture()"
+    ]
+  },
+  {
+    "file": "analysis/tests/test_computeNEventsPerMinCanonical.m",
+    "lines": 81,
+    "functions": [
+      "function tests = test_computeNEventsPerMinCanonical",
+      "function testBalancedRatesByEpoch(testCase)",
+      "function testDropZeroRatesFalseFillsMissingCombos(testCase)",
+      "function [events, map, files, epochSpec] = makeBalancedFixture()",
+      "function [events, map, files, epochSpec] = makeSparseFixture()"
+    ]
+  },
+  {
+    "file": "analysis/tests/test_epochConfigLoader.m",
+    "lines": 162,
+    "functions": [
+      "function tests = test_epochConfigLoader",
+      "function testDefaultFallbackAllEpoch(testCase)",
+      "function testJsonFramesConfig(testCase)",
+      "function testJsonPresetDefaultAndExplicit(testCase)",
+      "function testJsonPresetMissingErrors(testCase)",
+      "function testWriterParamFramesConfig(testCase)",
+      "function testFrameSplitConvenienceWriter(testCase)",
+      "function testWriterEnsuresPlanCompatiblePresetAliases(testCase)",
+      "function safeRmdir(pathIn)"
+    ]
+  },
+  {
+    "file": "analysis/tests/test_exploreLocalEventMotion.m",
+    "lines": 42,
+    "functions": [
+      "function tests = test_exploreLocalEventMotion",
+      "function testExplorerOpensOnSyntheticPayload(testCase)",
+      "function closeFigureIfOpen(h)"
+    ]
+  },
+  {
+    "file": "analysis/tests/test_filterSpiderMetricFamilies.m",
+    "lines": 32,
+    "functions": [
+      "function tests = test_filterSpiderMetricFamilies",
+      "function testKeepShapeRecruitmentSynchrony(testCase)",
+      "function testKeepPropagation(testCase)",
+      "function testDropLegacyPropdistForAllFamilies(testCase)"
+    ]
+  },
+  {
+    "file": "analysis/tests/test_flattenLocalSummarySignificance.m",
+    "lines": 65,
+    "functions": [
+      "function tests = test_flattenLocalSummarySignificance",
+      "function testFlattenFromComputedStruct(testCase)",
+      "function testFlattenFromResultRunsCompute(testCase)",
+      "function S = makeSyntheticSigStruct()",
+      "function result = makeSyntheticResult()"
+    ]
+  },
+  {
+    "file": "analysis/tests/test_listAnalysisPresets.m",
+    "lines": 28,
+    "functions": [
+      "function tests = test_listAnalysisPresets",
+      "function testListFromTemplate(testCase)",
+      "function safeRmdir(pathIn)"
+    ]
+  },
+  {
+    "file": "analysis/tests/test_listTopRecruitedEvents.m",
+    "lines": 51,
+    "functions": [
+      "function tests = test_listTopRecruitedEvents",
+      "function testRanksNeighborRecruitmentAndJoinsEvents(testCase)",
+      "function testSupportsEpochAndFileFilters(testCase)"
+    ]
+  },
+  {
+    "file": "analysis/tests/test_loadClusterOutputs.m",
+    "lines": 86,
+    "functions": [
+      "function tests = test_loadClusterOutputs",
+      "function testLoadsFromRootAndRunDir(testCase)",
+      "function testMissingRunDirErrors(testCase)",
+      "function testLoadsCanonicalWithoutLegacyPayload(testCase)",
+      "function runDir = makeMiniRun(root, includeLegacy)",
+      "function safeRmdir(pathIn)"
+    ]
+  },
+  {
+    "file": "analysis/tests/test_localWorkflowWrappers.m",
+    "lines": 254,
+    "functions": [
+      "function tests = test_localWorkflowWrappers",
+      "function testLoadResultAcceptsCanonicalStruct(testCase)",
+      "function testLoadClusterOutputsAddsTreatmentFallback(testCase)",
+      "function testComputeRespectsModeAndGroupValues(testCase)",
+      "function testDefaultComputeEnablesBaselineNormalization(testCase)",
+      "function testCanonicalOnlyComputeSkipsLegacyDerivedMetrics(testCase)",
+      "function testExportedResultCarriesNormalizationProvenance(testCase)",
+      "function testPresetEpochFallbackToDefaultConfigPreset(testCase)",
+      "function makeMiniRun(root, includeLegacy)",
+      "function makeEpochConfig(root)",
+      "function makeAnalysisPlanWithMissingEpochPreset(root)",
+      "function safeRmdir(pathIn)"
+    ]
+  },
+  {
+    "file": "analysis/tests/test_metricVocabulary.m",
+    "lines": 70,
+    "functions": [
+      "function tests = test_metricVocabulary",
+      "function testCatalogContainsContainmentRename(testCase)",
+      "function testRegistryGetsFamilyAndLineageMetadata(testCase)",
+      "function testDescribeMetricLineageReturnsCatalogRows(testCase)",
+      "function testCatalogStorageContractDistinguishesEventAndCellMetrics(testCase)",
+      "function testPromotedSliceRecruitmentIsDynamicOnlyInContract(testCase)"
+    ]
+  },
+  {
+    "file": "analysis/tests/test_normalizationProvenance.m",
+    "lines": 36,
+    "functions": [
+      "function tests = test_normalizationProvenance",
+      "function testRawViewReportsRaw(testCase)",
+      "function testNormViewReportsDefaultTransform(testCase)",
+      "function testRecommendedViewResolvesMixedTransforms(testCase)",
+      "function R = makeMiniResult()"
+    ]
+  },
+  {
+    "file": "analysis/tests/test_plotBAviolinSubplotAnova.m",
+    "lines": 47,
+    "functions": [
+      "function tests = test_plotBAviolinSubplotAnova",
+      "function testUnpairedAuto(testCase)",
+      "function testPairedAuto(testCase)",
+      "function closeIfValid(h)"
+    ]
+  },
+  {
+    "file": "analysis/tests/test_plotCapabilityMessaging.m",
+    "lines": 113,
+    "functions": [
+      "function tests = test_plotCapabilityMessaging",
+      "function testCapabilityHelperRecognizesCanonicalOnlyResult(testCase)",
+      "function testDescribeResultReportsCanonicalOnlyCapabilities(testCase)",
+      "function testSpiderWrapperFailsEarlyForCanonicalOnlyResult(testCase)",
+      "function testLegacyPanelsFailEarlyForCanonicalOnlyResult(testCase)",
+      "function testFileMetricsFailEarlyForCanonicalOnlyResult(testCase)",
+      "function R = makeCanonicalOnlyResult(root)",
+      "function makeCanonicalOnlyRun(root)",
+      "function safeRmdir(pathIn)"
+    ]
+  },
+  {
+    "file": "analysis/tests/test_plotCorrelationStatsHeatmap.m",
+    "lines": 20,
+    "functions": [
+      "function tests = test_plotCorrelationStatsHeatmap",
+      "function testPlotsFromCorrelationOutput(testCase)"
+    ]
+  },
+  {
+    "file": "analysis/tests/test_plotCorrelationStatsPair.m",
+    "lines": 21,
+    "functions": [
+      "function tests = test_plotCorrelationStatsPair",
+      "function testPlotsSelectedPair(testCase)"
+    ]
+  },
+  {
+    "file": "analysis/tests/test_plotSummarySignificance.m",
+    "lines": 10,
+    "functions": [
+      "function tests = test_plotSummarySignificance",
+      "function testPlaceholder(testCase)"
+    ]
+  },
+  {
+    "file": "analysis/tests/test_qcHelpers.m",
+    "lines": 72,
+    "functions": [
+      "function tests = test_qcHelpers",
+      "function testLoadOrCreateAndSaveRoundTrip(testCase)",
+      "function testMarkQCBasic(testCase)",
+      "function makeMiniRun(root)",
+      "function safeRmdir(pathIn)"
+    ]
+  },
+  {
+    "file": "analysis/tests/test_qcWorkflow.m",
+    "lines": 139,
+    "functions": [
+      "function tests = test_qcWorkflow",
+      "function testCreateAndValidateQCTables(testCase)",
+      "function testApplyQCToCanonical(testCase)",
+      "function testRunPipelineWithQC(testCase)",
+      "function testInvalidLegacyDataLimitTypeErrors(testCase)",
+      "function [files, cells, events, map] = miniCanonical()",
+      "function makeMiniRun(root)",
+      "function safeRmdir(pathIn)"
+    ]
+  },
+  {
+    "file": "analysis/tests/test_runCanonicalAnalysisPipeline.m",
+    "lines": 80,
+    "functions": [
+      "function tests = test_runCanonicalAnalysisPipeline",
+      "function testPipelineSmokeWithSubset(testCase)",
+      "function runDir = makeMiniRun(root)",
+      "function safeRmdir(pathIn)"
+    ]
+  },
+  {
+    "file": "analysis/tests/test_runGroupComparison.m",
+    "lines": 52,
+    "functions": [
+      "function tests = test_runGroupComparison",
+      "function testTwoGroupUnpairedAutoParametric(testCase)",
+      "function testTwoGroupPairedAutoSignrank(testCase)",
+      "function testMultiGroupUnpairedAutoKruskal(testCase)",
+      "function testMultiGroupPairedAutoFriedman(testCase)",
+      "function testPairedRequiresPairID(testCase)"
+    ]
+  },
+  {
+    "file": "analysis/tests/test_selectCanonicalSubset.m",
+    "lines": 57,
+    "functions": [
+      "function tests = test_selectCanonicalSubset",
+      "function testFilterByGenotype(testCase)",
+      "function testFilterByQCMask(testCase)",
+      "function [files, cells, events, map] = makeCanonicalFixtures()"
+    ]
+  },
+  {
+    "file": "analysis/tests/test_shared_manifest_preflight.m",
+    "lines": 32,
+    "functions": [
+      "function tests = test_shared_manifest_preflight",
+      "function testValidSharedFixtureRecordsProvenance(testCase)",
+      "function testOptionalAbsentManifestIsNoOp(testCase)",
+      "function testRequiredAbsentManifestFails(testCase)"
+    ]
+  },
+  {
+    "file": "analysis/tests/test_spiderMeanAggregation.m",
+    "lines": 149,
+    "functions": [
+      "function tests = test_spiderMeanAggregation",
+      "function testDefaultSliceAggregationUsesSliceMeans(testCase)",
+      "function testEntityAggregationUsesPooledEventsAndCells(testCase)",
+      "function testEventModeRelabelsCellDerivedEventAnalogs(testCase)",
+      "function testByBranchUsesGenericLabelsAndPooledCells(testCase)",
+      "function testStatsSummarySortedByMetricFamily(testCase)",
+      "function testEntityPointOverlayForEventMode(testCase)",
+      "function cleanup = suppressFigures()",
+      "function R = makeMiniSpiderResult()",
+      "function closeIfOpen(out)"
+    ]
+  },
+  {
+    "file": "analysis/tests/test_spiderSliceAggregation.m",
+    "lines": 101,
+    "functions": [
+      "function tests = test_spiderSliceAggregation",
+      "function testByEventUsesPerFileEventEntities(testCase)",
+      "function testByBranchUsesPerFileEventAndCellEntities(testCase)",
+      "function testSliceStatsSummarySortedByMetricFamily(testCase)",
+      "function pol = makeMiniPolars()",
+      "function cleanup = suppressFigures()",
+      "function closeIfOpen(out)"
+    ]
+  },
+  {
+    "file": "analysis/tests/test_summarizeCorrelationStatsTop.m",
+    "lines": 37,
+    "functions": [
+      "function tests = test_summarizeCorrelationStatsTop",
+      "function testSelectsPositiveAndNegative(testCase)",
+      "function testFiltersByThresholds(testCase)"
+    ]
+  },
+  {
+    "file": "analysis/tests/test_summarizeMetricStatsCanonical.m",
+    "lines": 46,
+    "functions": [
+      "function tests = test_summarizeMetricStatsCanonical",
+      "function testUnpairedSummary(testCase)",
+      "function testPairedSummaryWithPairVar(testCase)",
+      "function testMissingVarErrors(testCase)"
+    ]
+  },
+  {
+    "file": "analysis/tests/test_wavefrontMetricsFromGeometry.m",
+    "lines": 64,
+    "functions": [
+      "function tests = test_wavefrontMetricsFromGeometry",
+      "function testSharedGeometryAndWavefrontMetrics(testCase)",
+      "function testWavefrontIgnoresDisconnectedRoguePixels(testCase)"
+    ]
+  },
+  {
+    "file": "anatomy/estimate_dg_anatomy_from_movie.m",
+    "lines": 1751,
+    "functions": [
+      "function anatomy = estimate_dg_anatomy_from_movie(moviePath, eventMaps, metadata, opts)",
+      "function movie = read_movie(path)",
+      "function out = compress_projection(img, opts)",
+      "function out = robust_normalize(img, loPct, hiPct)",
+      "function evidence = detect_gcl_band(structural, scale)",
+      "function [ridge, theta, coherence] = process_orientation(img)",
+      "function candidates = detect_process_candidates(structural, ridge, theta, coherence, opts)",
+      "function [bandEvidence, blades] = fit_sgz_from_band(structural, ridge, candidates, imgSize)",
+      "function blade = fit_band_component(pix, bandEvidence, structural, ridge, candidates, imgSize)",
+      "function [positiveSupport, negativeSupport] = side_support(curveXY, curveNormal, structural, ridge)",
+      "function value = sample_image(img, point)",
+      "function q = weighted_percentile(vals, weights, percentile)",
+      "function candidates = empty_process_candidates()",
+      "function [somaEvidence, points, blades] = fit_sgz_from_soma_chain( ...",
+      "function [blade, inlierMask, bestScore] = ransac_soma_chain(points, structural, ...",
+      "function occupancy = chain_occupancy(t, nBins)",
+      "function blade = refine_soma_chain(points, structural, ridge, processCandidates, rawScore)",
+      "function support = process_perpendicular_support(curveXY, curveNormal, candidates)",
+      "function tf = curves_are_distinct(a, b)",
+      "function roi = load_roi_evidence(metadata, structural)",
+      "function scale = estimate_morphology_scale(roi, imageScale)",
+      "function boundaries = read_aqua_roi_boundaries(path)",
+      "function masks = boundaries_to_masks(boundaries, imgSize)",
+      "function centers = mask_centers(masks)",
+      "function pairs = pair_cells_and_somas(cellBoundaries, cellCenters, somaCenters)",
+      "function candidates = roi_process_candidates(roi, structural, scale)",
+      "function blades = reconcile_roi_and_fluorescence_blades(roiBlades, fluorescenceBlades)",
+      "function distance = median_curve_distance(a, b)",
+      "function blades = prune_blade_hypotheses(blades, imgSize, scale)",
+      "function distance = blade_endpoint_distance(a, b)",
+      "function blade = merge_collinear_blades(a, b, imgSize, scale)",
+      "function blades = apply_gcl_support(blades, gclEvidence, scale)",
+      "function q = endpoint_complexity(point, structural, endpoints, branchpoints)",
+      "function idx = sample_line(p1, p2, imgSize)",
+      "function tf = duplicates_candidate(candidate, candidates)",
+      "function blades = fit_sgz_blades(candidates, imgSize, scale, refinement)",
+      "function [groups, model] = apply_sgz_anchor_refinement( ...",
+      "function model = shared_apex_from_fixed_groups(candidates, groups, imgSize, ~)",
+      "function [groups, jointV] = spatial_soma_chain_groups(candidates, imgSize, scale)",
+      "function [bestGroups, bestModel] = best_shared_apex_groups(candidates, imgSize, scale)",
+      "function [groups, score] = score_shared_apex_model(apex, tangents, bases, ...",
+      "function [bestGroup, bestScore, bestTangent] = best_soma_line_group( ...",
+      "function blades = empty_blades()",
+      "function blade = fit_one_blade(candidates, imgSize, scale)",
+      "function blade = fit_apex_constrained_blade(candidates, ~, scale, apex, tangent)",
+      "function [apex, visible, confidence] = shared_apex_summary(blades, imgSize)",
+      "function beta = robust_weighted_fit(X, y, baseWeights)",
+      "function beta = weighted_linear_fit(X, y, weights)",
+      "function v = mean_unit(vectors, weights)",
+      "function [labels, signedDistance, confidence, radialMap] = ...",
+      "function score = build_activity_score(eventMaps, variability, structural)",
+      "function img = match_image_size(img, targetSize)",
+      "function [whole, distal] = build_proposals(score, structural, ridge, blades, radialMap, maxCount)",
+      "function proposals = empty_proposals()",
+      "function proposal = make_proposal(center, radial, halfLong, halfShort, score, type)",
+      "function tf = proposal_overlaps(candidate, selected, minDistance)",
+      "function radial = nearest_blade_radial(center, blades)",
+      "function [point, distance] = nearest_boundary(center, blades)",
+      "function value = round_clip(value, limit)",
+      "function opts = apply_defaults(opts, defaults)"
+    ]
+  },
+  {
+    "file": "anatomy/render_dg_anatomy_overview.m",
+    "lines": 261,
+    "functions": [
+      "function render_dg_anatomy_overview(anatomy, outPath)",
+      "function show_gray(img, ttl)",
+      "function plot_orientation(anatomy)",
+      "function plot_process_candidates(anatomy)",
+      "function plot_clean_anatomy(anatomy)",
+      "function plot_confidence(anatomy)",
+      "function plot_activity_anatomy(anatomy)",
+      "function plot_proposals(anatomy, proposals, ttl)",
+      "function plot_metadata(anatomy)",
+      "function overlay_layers(labels, alphaValue)",
+      "function plot_blades(blades, showRadials)",
+      "function plot_shared_apex(anatomy)",
+      "function plot_blade_confidence_labels(blades)",
+      "function color = confidence_color(value)"
+    ]
+  },
+  {
+    "file": "examples/run_synthetic_workflow.m",
+    "lines": 32,
+    "functions": [
+      "function result = run_synthetic_workflow(outDir)"
+    ]
+  },
+  {
+    "file": "experimental/refined-timing/estimate_pixel_onset_time.m",
+    "lines": 96,
+    "functions": [
+      "function out = estimate_pixel_onset_time(trace, coarseFrameLocal, varargin)"
+    ]
+  },
+  {
+    "file": "experimental/refined-timing/reconstruct_xspatemp_refined.m",
+    "lines": 90,
+    "functions": [
+      "function xSpaTempRefined = reconstruct_xspatemp_refined(delayMapRefinedSec, domainMask, t0Frame, t1Frame, spatialSize, varargin)",
+      "function onsetOut = localSmoothOnsetFrameMap(onsetIn, domainMask, sigmaPx)",
+      "function x = localNanToZero(x)"
+    ]
+  },
+  {
+    "file": "experimental/refined-timing/refine_event_delay_map.m",
+    "lines": 755,
+    "functions": [
+      "function out = refine_event_delay_map(source, preprocessed, varargin)",
+      "function ctx = localResolvePrototypeContext(source, preprocessed, eventUID, eventID)",
+      "function bundle = localResolveBundle(preprocessed)",
+      "function [BWA_AQ2, label, sourceResult, loadedStruct] = localResolveSource(source)",
+      "function event = localResolveEvent(BWA_AQ2, sourceResult, bundle, eventUID, eventID)",
+      "function idx = localInferEventIndexFromBundle(sourceResult, bundle, uidList)",
+      "function fileIDs = localFileIDs(BWA_AQ2)",
+      "function ord = localEventOrdinalWithinFile(fileIDs, idx)",
+      "function movie = localResolveMovie(loadedStruct, BWA_AQ2, sourceResult, fileRow, spatialSize)",
+      "function out = localCollectMovieCandidates(S)",
+      "function [movie, frameRange, alignInfo] = localNormalizeMovieCandidate(cand, fileRow, spatialSize, sourceResult)",
+      "function frameRange = localSourceMovieFrameRange(sourceResult)",
+      "function dtSec = localInferFrameDtSec(delaySec)",
+      "function spaRatio = localInferSpaRatio(delaySec, baseMask)",
+      "function residual = localRankResidual(score, maxShift)",
+      "function out = localRunLengths(v)",
+      "function [labelMap, stats] = localBuildApproxBlocks(baseMask, coarseFrameLocal, spaRatio)",
+      "function residualSmooth = localSmoothResidual(residualMap, confidence, validMask, domainMask, sigmaPx)",
+      "function residualOut = localMedianResidual(residualIn, validMask, domainMask)",
+      "function delayFrameLocal = localPreserveBlockAnchors(delayFrameLocal, coarseFrameLocal, blockStats)",
+      "function [delayOut, imputedMask] = localImputeDelay(delayIn, seedMask, domainMask)",
+      "function confOut = localImputeConfidence(confIn, validMask, domainMask)",
+      "function delayOut = localDenoiseDelayMap(delayIn, coarseDelaySec, confidence, validRawMask, domainMask, frameDtSec)",
+      "function out = localGaussianWithinMask(in, mask, sigmaPx)",
+      "function x = localNanToZero(x)",
+      "function value = localGetFieldOr(S, pathExpr, defaultValue)"
+    ]
+  },
+  {
+    "file": "hpc/bwa_aqua2_read_preset.m",
+    "lines": 41,
+    "functions": [
+      "function opts = bwa_aqua2_read_preset(csvPath)",
+      "function tf = ismissingValue(value)"
+    ]
+  },
+  {
+    "file": "hpc/bwa_aqua2_validate.m",
+    "lines": 53,
+    "functions": [
+      "function info = bwa_aqua2_validate(inputTif, cellMat, somaMat)",
+      "function count = validateRegionFile(path, label)"
+    ]
+  },
+  {
+    "file": "hpc/run_aqua2_from_environment.m",
+    "lines": 9,
+    "functions": [
+      "function result = run_aqua2_from_environment()"
+    ]
+  },
+  {
+    "file": "ingest/canonicalBranchOriginOwnership.m",
+    "lines": 213,
+    "functions": [
+      "function out = canonicalBranchOriginOwnership(BWA_AQ2, eventID, varargin)",
+      "function [imageSz, spatialRes] = localEventImagingMetaCanonicalOwnership(BWA_AQ2, eventID)",
+      "function W = localApplyDominantBranchOriginOverride(BWA_AQ2, eventID, G, W, minAreaRatio)",
+      "function W = localSnapBranchOriginToFrameMask(G, W)",
+      "function pt = localSnapPointToMaskCanonical(mask, pt)",
+      "function ownerCell = localResolveOwnerCellCanonical(pt, cellMasks, candidateCells)",
+      "function ownerCell = localNearestCellByCentroidCanonical(pt, candidateCells, cellMasks)"
+    ]
+  },
+  {
+    "file": "ingest/canonicalEventCellPartitionMetrics.m",
+    "lines": 97,
+    "functions": [
+      "function out = canonicalEventCellPartitionMetrics(xSpaTempOrCache, t0Frame, t1Frame, spatialSize, cellMaskOrPix, coverageThreshold)",
+      "function cellPix = forcePixOrMask(cellMaskOrPix)",
+      "function cache = prepareFrameCache(xSpaTempOrCache, t0Frame, t1Frame, spatialSize)"
+    ]
+  },
+  {
+    "file": "ingest/canonicalEventFrameCache.m",
+    "lines": 48,
+    "functions": [
+      "function cache = canonicalEventFrameCache(xSpaTempEvent, t0Frame, t1Frame, spatialSize)"
+    ]
+  },
+  {
+    "file": "ingest/canonicalEventMetrics.m",
+    "lines": 215,
+    "functions": [
+      "function out = canonicalEventMetrics(evtPix, spatialSize, cellMaskOrPix, propGrow, propShrink)",
+      "function shp = computeShape(evtPix, spatialSize)",
+      "function ov = computeCellOverlap(evtPix, cellMaskOrPix)",
+      "function [distPx, angleDeg] = computePropagation(propGrow, propShrink)",
+      "function val = signedDelta(edgeCoord, centerCoord, negDelta, posDelta)",
+      "function [cx, cy] = safeCentroid(x, y)",
+      "function bw = spatialProjectionMask(evtPix, spatialSize)",
+      "function n = boundaryPixelCount(bw)",
+      "function p = forcePix(p)"
+    ]
+  },
+  {
+    "file": "ingest/canonicalOriginCell.m",
+    "lines": 319,
+    "functions": [
+      "function out = canonicalOriginCell(xSpaTempEvent, t0Frame, t1Frame, spatialSize, candidateCells, cellMasks, varargin)",
+      "function idx = chooseFullOverlapFallback(fullOvScore, distScore, candidateCells)",
+      "function [score, ovScore, distScore, fullOvScore] = scoreCandidates(candidateCells, cellMasks, ...",
+      "function [framePixList, ctr, onsetPix] = onsetFramePixels(xSpaTempEvent, t0Frame, spatialSize, nEarly, w, minComponentSize, cellMasks, candidateCells)",
+      "function evtPix = allEventPixels(xSpaTempEvent, spatialSize)",
+      "function onsetPix = denoiseOnsetPixels(onsetPix, spatialDims, minComponentSize, cellMasks, candidateCells)",
+      "function fp = eventPixelsAtFrame(xSpaTempEvent, absFrame, spatialDims)",
+      "function c = maskCenterLocal(m)"
+    ]
+  },
+  {
+    "file": "ingest/canonicalSomaDistanceMetrics.m",
+    "lines": 134,
+    "functions": [
+      "function out = canonicalSomaDistanceMetrics(evtPix, xSpaTempEvent, t0Frame, t1Frame, spatialSize, somaMask, somaCenter)",
+      "function d = centroidDistance(a, b)",
+      "function ctr = chooseSomaCenter(somaMask, somaCenter)",
+      "function spatialSize = normalizeSpatialSize(spatialSize)",
+      "function ctr = pixelCentroid(pix, spatialSize3)",
+      "function pix = eventPixelsAtAbsoluteFrame(xSpaTempEvent, absFrame, spatialSize)",
+      "function ctr = maskCenterLocal(mask)"
+    ]
+  },
+  {
+    "file": "ingest/extractFromAQ2.m",
+    "lines": 82,
+    "functions": [
+      "function datOut = extractFromAQ2(fileDBInfo, IDStruct, fieldList)",
+      "function out = getPathOr(s, dotted, defaultVal)"
+    ]
+  },
+  {
+    "file": "ingest/ingestAQuA2Canonical.m",
+    "lines": 1150,
+    "functions": [
+      "function out = ingestAQuA2Canonical(varargin)",
+      "function [fRows, cRows, eRows, mRows, skipPath, skipReason] = processOneFile(thisFile, DB_Animals, DB_ExpCond, minAssociatedCellCoverageFrac)",
+      "function out = makeFileRowTemplate()",
+      "function out = makeCellRowTemplate()",
+      "function out = makeEventRowTemplate()",
+      "function out = makeMapRowTemplate()",
+      "function DB_ExpCond = loadExpCondIfPresent()",
+      "function meta = getAnimalMeta(DB_Animals, animalID)",
+      "function meta = getExpMeta(DB_ExpCond, fileID)",
+      "function out = pickFieldOrEmpty(s, fname)",
+      "function nCells = inferNCells(fts1)",
+      "function nSomas = inferNSomas(fts1)",
+      "function cRows = buildCellRows(fts1, fileID, animalID, sliceNum, nCells)",
+      "function [eRows, mRows] = buildEventRows(fts1, fileID, animalID, sliceNum, frameRate, spatialRes, spatialSize, minAssociatedCellCoverageFrac)",
+      "function cls = classifyMotion(toward, away, towardBeforeReach, awayAfterReach)",
+      "function v = matrixAt(x, i, j)",
+      "function p = eventSpatialPixels(ctx, ev)",
+      "function p = voxelToSpatial(voxelIdx, spatialSize)",
+      "function ctx = buildSomaContext(fts1, nEvents, spatialSizeHint)",
+      "function out = safeCellFetch(C, idx)",
+      "function cellToSoma = resolveSingleSomaPerCell(inclu, cellMasks, lmkMasks, cellCenters, lmkCenters)",
+      "function best = pickMostCentralLandmark(cand, cellIdx, cellMasks, lmkMasks, cellCenters, lmkCenters)",
+      "function n = overlapCountSafe(a, b)",
+      "function c = getCenterRow(C, idx)",
+      "function c = maskCenter(m)",
+      "function out = force2d(x, nRows)",
+      "function [pairs, primaryCellID] = eventCellPairs(fts1, nEvents)",
+      "function pairs = localEnsurePrimaryPairs(pairs, primaryCellID)",
+      "function rows = localFilterOfficialMapRows(rows, minCoverageFrac)",
+      "function ownerCell = localResolveOwnerCellFromPointSingle(pt, cellMasks, candidateCells)",
+      "function ownerCell = localNearestCellMaskCentroidSingle(pt, candidateCells, cellMasks)",
+      "function out = getPathOrDefault(s, dottedPath, defaultVal)",
+      "function v = forceColumn(x)",
+      "function v = forceColumnWithLength(x, n)",
+      "function out = scalarOrNaN(x)",
+      "function s = asString(v)",
+      "function c = asChar(v)",
+      "function out = tf(v)"
+    ]
+  },
+  {
+    "file": "ingest/ingestCanonicalFromBWA.m",
+    "lines": 934,
+    "functions": [
+      "function out = ingestCanonicalFromBWA(BWA_AQ2, DB_Files, DB_Animals, DB_ExpCond, varargin)",
+      "function [fileRows, cellRows, eventRows, mapRows] = processOneBWAFile(ff, uniqueFileIDs, dbIdxByFile, cellOffsets, lmkOffsets, ...",
+      "function out = fileTemplate()",
+      "function out = cellTemplate()",
+      "function out = eventTemplate()",
+      "function out = mapTemplate()",
+      "function meta = findFileMeta(DB_Files, fileID)",
+      "function meta = findAnimalMeta(DB_Animals, animalID)",
+      "function meta = findExpMeta(DB_ExpCond, fileID)",
+      "function out = getFieldOr(s, f, d)",
+      "function out = getFieldPathOr(s, dotted, d)",
+      "function c = toCellstr(v)",
+      "function s = toStr(v)",
+      "function c = asChar(v), c = toStr(v); end",
+      "function v = toScalarOrNaN(x, idx)",
+      "function v = toScalarOrEmpty(x, idx)",
+      "function v = forceCol(x)",
+      "function v = safeIndex(x, idx)",
+      "function v = safeCellIndex(c, idx)",
+      "function [primaryCell, mappedCells, mappedScores] = extractMemberMapping(memberIdx, idx)",
+      "function [mappedCells, mappedScores] = localMergePrimaryIntoCandidates(mappedCells, mappedScores, primaryCell)",
+      "function rows = localFilterOfficialCellMembers(rows, minCoverageFrac)",
+      "function ownerCell = localResolveOwnerCellFromPoint(pt, cellMasks, candidateCells)",
+      "function ownerCell = localNearestCellMaskCentroid(pt, candidateCells, cellMasks)",
+      "function p = getEventSpatialPixels(xSpa, xSpaTemp, idx, opts, dbIdx)",
+      "function p = voxelToSpatial(vIdx, opts, dbIdx)",
+      "function p = maskToPix(m)",
+      "function cache = cacheMaskPixels(masks)",
+      "function out = sliceCellBlock(cellsIn, offset, nLocal)",
+      "function out = sliceNumericBlock(x, offset, nRowsLocal, nColsLocal)",
+      "function out = sliceNumericRows(x, offset, nRowsLocal)",
+      "function n = scalarCount(v)",
+      "function v = safe2d(x, i, j)",
+      "function cls = motionClass(toward, away, towardBeforeReach, awayAfterReach)",
+      "function cellToSoma = resolveSingleSomaPerCell(inclu, cellMasks, lmkMasks, cellCenters, lmkCenters)",
+      "function best = pickMostCentralLandmark(cand, cellIdx, cellMasks, lmkMasks, cellCenters, lmkCenters)",
+      "function c = getCenterRow(C, idx)",
+      "function c = maskCenter(m)"
+    ]
+  },
+  {
+    "file": "ingest/insertDatToSummary.m",
+    "lines": 63,
+    "functions": [
+      "function outSummary = insertDatToSummary(inSummary, newDat, level)",
+      "function spec = legacyMergeSpec()",
+      "function dim = legacyMergeDim(pathStr)"
+    ]
+  },
+  {
+    "file": "ingest/interpretAQuA2.m",
+    "lines": 347,
+    "functions": [
+      "function [BWA_AQ2, canonicalOut] = interpretAQuA2(varargin)",
+      "function out = tf(v)",
+      "function structOut = MakeAQ2()",
+      "function S = stripCanonicalBackedMetrics(S)",
+      "function B = augmentLegacyOwnershipFromCanonical(B, canonicalOut)",
+      "function c = localCanonCellstrInterpret(v)",
+      "function S = rmFieldPathIfExists(S, dottedPath)",
+      "function out = rmFieldParts(in, parts)"
+    ]
+  },
+  {
+    "file": "ingest/mergeStructs.m",
+    "lines": 176,
+    "functions": [
+      "function outStruct = mergeStructs(toMergeStruct, treeloc, outStruct, newTreeLoc, dim)",
+      "function out = mergeValueRecursive(a, b, dim)",
+      "function out = mergeStructPayload(a, b, dim)",
+      "function out = concatNumericWithPad(a, b, dim)",
+      "function out = concatLogicalWithPad(a, b, dim)",
+      "function out = concatCellWithPad(a, b, dim)",
+      "function out = concatStringWithPad(a, b, dim)",
+      "function [a2, b2] = padPairToMatch(a, b, dim, fillFactory)",
+      "function out = padToSize(in, targetSz, fillFactory)",
+      "function v = nanLike(sz, in)",
+      "function v = falseLike(sz, ~)",
+      "function v = emptyCellLike(sz, ~)",
+      "function v = missingStringLike(sz, ~)",
+      "function c = wrapCell(x)"
+    ]
+  },
+  {
+    "file": "ingest/resolveSingleSomaPerCellStandalone.m",
+    "lines": 113,
+    "functions": [
+      "function cellToSoma = resolveSingleSomaPerCellStandalone(inclu, cellMasks, lmkMasks, cellCenters, lmkCenters)",
+      "function best = pickMostCentralLandmark(cand, cellIdx, cellMasks, lmkMasks, cellCenters, lmkCenters)",
+      "function n = overlapCountSafe(a, b)",
+      "function c = getCenterRow(C, idx)",
+      "function c = maskCenter(m)"
+    ]
+  },
+  {
+    "file": "ingest/wavefront/CalcEventFrameGeometry.m",
+    "lines": 108,
+    "functions": [
+      "function geom = CalcEventFrameGeometry(xSpaTemp, allt0, allt1, imageSz, varargin)",
+      "function G = oneEventGeometry(xSpaTemp_ID, t0, t1, imageSz)",
+      "function LinIndexIntoFrame = localEventPixInFrame(eventFrame, xSpaTemp_ID, imageSz)"
+    ]
+  },
+  {
+    "file": "ingest/wavefront/CalcWavefrontMetrics.m",
+    "lines": 1179,
+    "functions": [
+      "function wavefront = CalcWavefrontMetrics(eventGeom, spatialRes, varargin)",
+      "function out = emptyWavefront()",
+      "function [origin, idx] = localInitialCentroid(eventGeom)",
+      "function [peakReachPx, peakFrameIdx, peakPoint] = localFindPeakFromOrigin(candidateComps, origin, validIdx, minFrameIdx)",
+      "function track = localBacktrace(eventGeom, validated, peakFrameIdx, peakPoint, startFrameIdx)",
+      "function track = localForwardTrackToPeak(eventGeom, validated, startFrameIdx, startPoint, peakFrameIdx, peakPoint)",
+      "function out = localBuildWavefrontTracks(eventGeom, corridor, startFrameIdx, startPoint, peakFrameIdx, peakPoint)",
+      "function idx = localNearestComponentIndex(nodes, pt)",
+      "function idx = localContainingOrNearestComponentIndex(nodes, pt)",
+      "function tf = localComponentsLinked(aNode, bNode)",
+      "function nodePath = localBacktrackNodePath(prevIdx, costs, startFrameIdx, endFrameIdx, endNodeIdx)",
+      "function track = localNodePathToTrack(nodesByFrame, nodePath, startFrameIdx, endFrameIdx, startPoint, endPoint, nFrames)",
+      "function sinks = localReachableSinkNodes(nodesByFrame, prevIdx, costs, peakFrameIdx, peakNode)",
+      "function track = localRefineTrackByEdgeSliding(eventGeom, corridor, track, startFrameIdx, peakFrameIdx, nIter)",
+      "function [pt, ok] = localSelectBackwardBranchPoint(eventGeom, validated, k, nextPt)",
+      "function [pt, cost, ok] = localBestEdgeSlidingPoint(mask, prevPt, nextPt)",
+      "function track = localExtendTrackAfterPeak(eventGeom, corridor, track, peakFrameIdx)",
+      "function cand = localForwardCandidateComponents(eventGeom, validated, k)",
+      "function comps = localComponentsFromMask(mask)",
+      "function comps = localAppendComponentNodes(comps, mask, kind, nodePenalty)",
+      "function lineage = localTracePeakComponentLineage(eventGeom, peakFrameIdx, peakPoint, firstFrameIdx)",
+      "function activeMasks = localTracePeakComponentMasks(eventGeom, peakFrameIdx, peakPoint, firstFrameIdx)",
+      "function corridor = localIntersectBranchCorridor(validated, backwardMasks, eventGeom)",
+      "function [branchOrigin, branchOriginFrameIdx] = localSelectBranchOrigin(eventGeom, track, trackValid, firstFrameIdx, peakFrameIdx, minBranchPixels, minBranchPersistence, minBranchAreaFracOfPeak, dominantBranchFutureWindow, onsetOrigin)",
+      "function [branchOrigin, branchOriginFrameIdx] = localRewindBranchOrigin(eventGeom, branchOrigin, branchOriginFrameIdx, onsetFrameIdx, rewindFrames, minRewindBranchPixels)",
+      "function tf = localDominantBranchSupport(trackAreas, trackValid, startIdx, peakFrameIdx, areaThreshold, futureWindow)",
+      "function tf = localFramePersists(eventGeom, track, trackValid, trackAreas, startIdx, peakFrameIdx, areaThreshold, minBranchPersistence)",
+      "function area = localClusterAreaAtPoint(frameMask, pt)",
+      "function [ctr, ok] = localClusterCentroidAtPoint(frameMask, pt)",
+      "function [comp, ok] = localComponentContainingPoint(frameMask, pt)",
+      "function candidateComps = localConnectedFrontierComponents(eventGeom, enforceConnectedFrontier)",
+      "function validated = localValidateForwardBranchToPeak(eventGeom, origin, startFrameIdx, peakFrameIdx, peakPoint, maxJumpPx)",
+      "function peakPoint = localRefinePeakPointOnValidatedBoundary(validated, peakFrameIdx, peakPoint, origin)",
+      "function comps = localConnectedComponentsFromFrontier(newMask, prevMask)",
+      "function comps = localConnectedActiveComponents(frameMask)",
+      "function [pt, comp, ok] = localSelectSeedActiveComponent(comps, origin)",
+      "function [pt, comp, ok] = localSelectForwardActiveComponent(comps, prevComp, prevPt, maxJumpPx)",
+      "function [pt, comp, ok] = localSelectBackwardLineageComponent(comps, nextComp, nextPt)",
+      "function mask = localPreferredBackwardMask(eventGeom, validated, k)",
+      "function [pt, ok] = localSelectBackwardFootprintPoint(prevMask, nextPt)",
+      "function [pt, ok] = localSelectPointTowardPeak(mask, prevPt, peakPt)",
+      "function pt = localRepresentativePointForComponent(pts, prevPt, nextPt)",
+      "function [pt, comp, ok] = localSelectComponentContainingPoint(comps, targetPt)",
+      "function pts = localFlattenComponents(comps)",
+      "function d = localMinComponentDistance(aPts, bPts)",
+      "function n = localComponentOverlapSize(aPts, bPts)",
+      "function mask = localMaskFromPoints(sz, pts)"
+    ]
+  },
+  {
+    "file": "ingest/wavefront/assembleWavefrontValidationSet.m",
+    "lines": 316,
+    "functions": [
+      "function out = assembleWavefrontValidationSet(source, varargin)",
+      "function [result, BWA_AQ2, sourceLabel] = localResolveValidationSource(source)",
+      "function T = localBuildEventSummaryTable(result)",
+      "function Tpick = localPickRepresentativeSingles(singleTbl, nPick)",
+      "function summary = localComputeSelectedMetrics(result, BWA_AQ2, selectedRows, refinePixelWalk)",
+      "function outRows = localResolveIncludedRows(eventTbl, includeSpec)",
+      "function v = localMaybeScalar(T, name)",
+      "function name = localFirstPresent(names, candidates)",
+      "function eid = localEventIdFromUID(uid)",
+      "function idxMap = localGlobalEventIndex(BWA_AQ2)",
+      "function [imageSz, spatialRes] = localEventImagingMeta(BWA_AQ2, eventID)"
+    ]
+  },
+  {
+    "file": "ingest/wavefront/dominantPremergeBranchPrototype.m",
+    "lines": 355,
+    "functions": [
+      "function out = dominantPremergeBranchPrototype(source, eventID, varargin)",
+      "function txt = localFrameLabel(frames, idx)",
+      "function val = localFrameValue(frames, idx)",
+      "function idx = localLastSplitFrameIdx(nComp, startIdx, endIdx)",
+      "function tf = localHasPersistentMerge(nComp, startIdx, persistenceFrames)",
+      "function txt = localIdxLabel(idx)",
+      "function comps = localFrameComponents(mask, minPixels)",
+      "function comps = localLimitComponents(comps, maxCount, minAreaFractionOfLargest)",
+      "function reps = localComponentRepArray(comps)",
+      "function idx = localComponentIndexForPoint(comps, pt)",
+      "function pt = localNearestPointToTarget(pts, target)",
+      "function [BWA_AQ2, label] = localResolveSource(source)",
+      "function [imageSz, spatialRes] = localEventImagingMeta(BWA_AQ2, eventID)"
+    ]
+  },
+  {
+    "file": "ingest/wavefront/plotWavefrontPropagationTrack.m",
+    "lines": 411,
+    "functions": [
+      "function out = plotWavefrontPropagationTrack(source, varargin)",
+      "function [propagation, opts, eventID, defaultFts, extraArgs] = resolveWavefrontInputs(source, varargin)",
+      "function tf = isAquaResStruct(S)",
+      "function sr = inferSpatialRes(opts)",
+      "function args = forwardMetricArgs(inArgs)",
+      "function mode = resolveBackgroundMode(modeIn, fts)",
+      "function tf = hasFootprintData(fts)",
+      "function [img, R] = buildEventFootprintBackground(fts, opts, eventID, spatialRes)",
+      "function [img, R] = buildEventProgressionBackground(fts, opts, eventID, spatialRes, metrics, progressFrame)",
+      "function img = applyMaskColor(img, mask, color)",
+      "function mask = maskForEventFootprint(linPix, sx, sy)",
+      "function frameMask = temporalFrameMask(xSpaTemp_ID, frameNum, imageSz)",
+      "function [sx, sy] = backgroundSize(opts)",
+      "function sz3 = backgroundDepth(opts)",
+      "function t0 = inferEventStartFrame(fts, eventID)",
+      "function offsetPx = inferEventSpatialOffsetPx(fts, opts, eventID)",
+      "function linFrame = temporalFrameLinearIdx(xSpaTemp_ID, frameNum, sx, sy, sz3)"
+    ]
+  },
+  {
+    "file": "ingest/wavefront/validateDominantSourceBranchPrototype.m",
+    "lines": 421,
+    "functions": [
+      "function out = validateDominantSourceBranchPrototype(source, eventID, varargin)",
+      "function info = localEmptyFrameInfo()",
+      "function out = localValidateAnchor(frameInfo, frameIdx, pt)",
+      "function trace = localTraceComponentBackward(frameInfo, startIdx, compIdx, minOverlapFraction, maxRepJumpPx)",
+      "function idx = localChooseBackwardMatch(prevComps, currComp, minOverlapFraction, maxRepJumpPx)",
+      "function tf = localComponentContainsPoint(comp, pt)",
+      "function tf = localHasPersistentMerge(nComp, startIdx, persistenceFrames)",
+      "function val = localFrameValue(frames, idx)",
+      "function comps = localFrameComponents(mask, minPixels)",
+      "function comps = localLimitComponents(comps, maxCount, minAreaFractionOfLargest)",
+      "function pt = localNearestMaskPixel(mask, pt)",
+      "function pt = localNearestPointToTarget(pts, target)",
+      "function pt = localClampPoint(pt, nCols, nRows)",
+      "function [BWA_AQ2, label] = localResolveSource(source)",
+      "function [imageSz, spatialRes] = localEventImagingMeta(BWA_AQ2, eventID)"
+    ]
+  },
+  {
+    "file": "ingest/wavefront/wavefrontComponentGraphPrototype.m",
+    "lines": 2039,
+    "functions": [
+      "function out = wavefrontComponentGraphPrototype(source, eventID, varargin)",
+      "function [nodesByFrame, startIdx, endIdx, nodePath, costs, reachable, usedStrictConnectivity, track, trackValid] = ...",
+      "function tf = localHasUsableTrack(trackValid, startIdx, endIdx)",
+      "function tf = localPreferWalkTrack(G, nodeTrack, nodeTrackValid, walkTrack, walkTrackValid, startIdx, endIdx)",
+      "function score = localTrackPenaltyScore(G, track, trackValid, startIdx, endIdx)",
+      "function [track, trackValid] = localDelayTerminalApproach(G, frames, track, trackValid, W)",
+      "function [elbowPt, latePt, ok] = localTerminalElbowAndDelay(maskPrev, elbowMask, nextMask, prePt, peakPt)",
+      "function tf = localTrackReachesPeak(trackValid, endIdx)",
+      "function [W, track, trackValid, endIdx] = localLockPeakFrameAtFirstArrival(frames, track, trackValid, W, endIdx)",
+      "function W = localApplyDominantPremergeOverride(sourceResult, BWA_AQ2, eventID, G, W, minAreaRatio)",
+      "function W = localSnapWavefrontAnchorsToFrames(G, W)",
+      "function W = localRefreshPeakForOriginOnPeakFrame(G, W)",
+      "function Wout = localDelayPeakFrameToConnectedBoundary(G, W, maxDelayFrames)",
+      "function W = localSyncPeakFromTrack(frames, endIdx, track, trackValid, W)",
+      "function track = localSnapTrackToActiveMasks(G, track, startIdx, endIdx)",
+      "function track = localRefineTrackPairwiseSupport(G, track, startIdx, endIdx)",
+      "function track = localEnforceRawTransitionLegality(G, track, startIdx, endIdx)",
+      "function guidePt = localFutureGuidePoint(track, startIdx, endIdx, defaultPt)",
+      "function pt = localNearestLegalNextPoint(mask1, mask2, unionMask, p1, targetPt)",
+      "function pt = localSnapPointToMask(mask, pt)",
+      "function tf = localSegmentInsideMask(mask, p1, p2)",
+      "function [q1, q2, ok] = localFrameTransitionPair(seg, mask1, mask2, p1, p2, unionMask)",
+      "function pt = localSnapPointToBoundary(mask, pt)",
+      "function [frontierLengthPx, reachPx] = localTrackMetrics(track, trackValid, originXY, peakXY, frames, originFrame, peakFrame)",
+      "function comps = localFrontierComponents(G, k, minNewPixels, minEdgePixels)",
+      "function comps = localAppendComponents(comps, mask, edgeMask, supportMask, kind, nodePenalty, minPixels)",
+      "function [nodePath, costs, reachable, usedStrictConnectivity] = localSolveNodePathWithFallback(nodesByFrame, startIdx, endIdx, startNode, endNode, maxLinkDistPx, originXY, peakPointXY, progressRewardWeight, peakDirectionPenaltyWeight, newNodeReward, requireSupportConnectivity)",
+      "function idx = localNearestNode(nodes, pt)",
+      "function idx = localContainingOrNearestNode(nodes, pt)",
+      "function [nodePath, costs, reachable] = localSolveNodePath(nodesByFrame, startIdx, endIdx, startNode, endNode, maxLinkDistPx, peakPointXY, progressRewardWeight, peakDirectionPenaltyWeight, newNodeReward, requireSupportConnectivity)",
+      "function edgeCost = localTransitionCost(a, b, peakPointXY, progressRewardWeight, peakDirectionPenaltyWeight, newNodeReward)",
+      "function reachable = localBackwardReachability(nodesByFrame, endIdx, endNode, maxLinkDistPx, requireSupportConnectivity)",
+      "function tf = localNodesLinked(a, b, maxLinkDistPx, requireSupportConnectivity)",
+      "function [d, aPt, bPt] = localClosestPair(aPts, bPts)",
+      "function localPlotEdges(ax, nodesByFrame, startIdx, endIdx, maxLinkDistPx, spatialRes)",
+      "function color = localNodeColor(node, showReachability, fwd, back)",
+      "function track = localNodePathToTrack(nodesByFrame, nodePath, startIdx, endIdx, startPoint, endPoint, nFrames, maxRepresentativeJumpPx)",
+      "function pt = localRepresentativePoint(node, prevPt, nextPt, maxRepresentativeJumpPx)",
+      "function track = localRefineTrackTail(nodesByFrame, nodePath, startIdx, endIdx, track, peakPoint, maxRepresentativeJumpPx, tailBacktrackFrames)",
+      "function displayPath = localTrackDisplayPath(track, trackValid, G, startIdx, endIdx)",
+      "function [seg, pathMask] = localTransitionSupportSegment(G, startIdx, endIdx, k1, k2, p1, p2, maxExtraFrames)",
+      "function maskOut = localRepairInteriorCracks(maskIn)",
+      "function seg = localOrthogonalizeDisplaySegment(mask, seg)",
+      "function track = localConnectedPixelWalkTrack(G, W, startIdx, endIdx)",
+      "function pt = localSelectNextSupportPoint(G, k, endIdx, currReachable, prevPt, prevPrevPt, originPoint, peakPoint, futureMask, currMask)",
+      "function pt = localBestSupportCandidate(G, k, mask, prevPt, prevPrevPt, originPoint, peakPoint, distMap, corridorPath, isPinkTier, peakLinkMask)",
+      "function keep = localGeodesicBandMask(pts, pathPts, bandPx)",
+      "function penalty = localImmediateReversalPenalty(pts, prevPt, prevPrevPt)",
+      "function [pts, bonus] = localSupportCandidates(G, k, mask, originPoint, isPinkTier)",
+      "function bonus = localPinkPersistenceBonus(G, k, compMask)",
+      "function d = localCandidateDistance(distMap, pts, peakPoint)",
+      "function track = localCumulativeMaskTrack(G, startIdx, endIdx, originPoint, peakPoint, useFullEventUnion)",
+      "function rows = localUniqueConsecutiveRows(rows)",
+      "function [pt, idx] = localLatestPathPointInMask(pathPts, startPos, mask)",
+      "function pt = localLastPathPointInMask(pathPts, mask)",
+      "function pt = localFirstPathPointInMask(pathPts, mask)",
+      "function distMap = localMaskedDistanceMap(mask, targetPt)",
+      "function pathPts = localMaskedShortestPath(mask, startPt, endPt)",
+      "function regionMask = localConnectedRegionFromSeed(mask, seedPt)",
+      "function pt = localNearestMaskPixel(mask, pt)",
+      "function pt = localNearestPointToTarget(pts, target)",
+      "function tf = localPointInMask(mask, pt)",
+      "function tf = localMaskConnected(mask, startPt, endPt)",
+      "function pt = localClampPoint(pt, nCols, nRows)",
+      "function secondary = localSecondarySinks(nodesByFrame, costs, reachable, peakFrameIdx, peakNode)",
+      "function alternatives = localFrameAlternatives(nodesByFrame, costs, forwardReachable, backwardReachable, nodePath, startIdx, endIdx)",
+      "function localPlotAlternatives(ax, nodesByFrame, alternatives, frames, spatialRes)",
+      "function [BWA_AQ2, label, sourceResult] = localResolveSource(source)",
+      "function tf = localResolveRefinePixelWalk(modeValue, isMulticellEvent)",
+      "function tf = localIsMulticellEvent(result, BWA_AQ2, eventID)",
+      "function eventUID = localEventUIDFromGlobalIndex(BWA_AQ2, eventID)",
+      "function [imageSz, spatialRes] = localEventImagingMeta(BWA_AQ2, eventID)"
+    ]
+  },
+  {
+    "file": "ingest/wavefront/wavefrontPropagationMetrics.m",
+    "lines": 267,
+    "functions": [
+      "function [out, debug] = wavefrontPropagationMetrics(propGrow, propShrink, varargin)",
+      "function out = emptyWavefrontMetrics()",
+      "function val = signedDelta(edgeCoord, centerCoord, negDelta, posDelta)",
+      "function [cx, cy] = safeCentroid(x, y)"
+    ]
+  },
+  {
+    "file": "run_public_tests.m",
+    "lines": 18,
+    "functions": [
+      "function results = run_public_tests()"
+    ]
+  },
+  {
+    "file": "setup_aqua2_tools.m",
+    "lines": 10,
+    "functions": [
+      "function root = setup_aqua2_tools()"
+    ]
+  }
+]

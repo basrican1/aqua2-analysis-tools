@@ -1,0 +1,12 @@
+# Generated data and local configuration do not belong in this source export.
+.DS_Store
+*.asv
+*.mat
+*.tif
+*.tiff
+*.abf
+*.pxp
+*.ibw
+*.log
+outputs/
+local-config/
